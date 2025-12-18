@@ -1,22 +1,21 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
+
+// Programming Languages
 import C from "../../Assets/TechIcons/C++.svg";
 import Java from "../../Assets/TechIcons/Java.svg";
-import Javascript from "../../Assets/TechIcons/Javascript.svg";
-// import Node from "../../Assets/TechIcons/Node.svg";
+import Javascript from "../../Assets/TechIcons/c.png";
 import SQL from "../../Assets/TechIcons/SQL.svg";
-import Postgresql from "../../Assets/TechIcons/SQL.svg"; // placeholder for PostgreSQL
-// import ReactIcon from "../../Assets/TechIcons/React.svg";
-// import Git from "../../Assets/TechIcons/Git.svg";
+import Postgresql from "../../Assets/TechIcons/mysql.png"; // MySQL image as placeholder for PostgreSQL
 import Firebase from "../../Assets/TechIcons/Firebase.svg";
-// import Docker from "../../Assets/TechIcons/Docker.svg";
-// import Kubernetes from "../../Assets/TechIcons/Kubernates.svg";
-import CloudSQL from "../../Assets/TechIcons/cloudsql.png"; // temporary placeholder
-import AppEngine from "../../Assets/TechIcons/SQL.svg"; // temporary placeholder
-import CloudRun from "../../Assets/TechIcons/SQL.svg"; // temporary placeholder
-import CloudFunctions from "../../Assets/TechIcons/SQL.svg"; // temporary placeholder
-import CloudStorage from "../../Assets/TechIcons/SQL.svg"; // temporary placeholder
-import CloudBuild from "../../Assets/TechIcons/SQL.svg"; // temporary placeholder
+
+// GCP / Cloud Services
+import CloudSQL from "../../Assets/TechIcons/cloudsql.png";
+import AppEngine from "../../Assets/TechIcons/app engine.png";
+import CloudRun from "../../Assets/TechIcons/cloud run.jfif";
+import CloudFunctions from "../../Assets/TechIcons/cloud function.jfif";
+import CloudStorage from "../../Assets/TechIcons/cloud storage.jfif";
+import CloudBuild from "../../Assets/TechIcons/cloud build.png";
 
 function Techstack() {
   return (
@@ -35,10 +34,6 @@ function Techstack() {
           <img src={Javascript} alt="Javascript" />
           <div className="tech-icons-text">C</div>
         </Col>
-        {/* <Col xs={6} sm={4} md={2} className="tech-icons">
-          <img src={Node} alt="Node.js" />
-          <div className="tech-icons-text">Node.js</div>
-        </Col> */}
 
         {/* Databases */}
         <Col xs={6} sm={4} md={2} className="tech-icons">
@@ -50,19 +45,7 @@ function Techstack() {
           <div className="tech-icons-text">PostgreSQL</div>
         </Col>
 
-        {/* Frontend
-        <Col xs={6} sm={4} md={2} className="tech-icons">
-          <img src={ReactIcon} alt="React.js" />
-          <div className="tech-icons-text">React.js</div>
-        </Col> */}
-
-        {/* Version Control */}
-        {/* <Col xs={6} sm={4} md={2} className="tech-icons">
-          <img src={Git} alt="Git" />
-          <div className="tech-icons-text">Git</div>
-        </Col> */}
-
-        {/* GCP Services (temporary placeholders) */}
+        {/* GCP Services */}
         <Col xs={6} sm={4} md={2} className="tech-icons">
           <img src={CloudSQL} alt="Cloud SQL" />
           <div className="tech-icons-text">Cloud SQL</div>
@@ -88,16 +71,6 @@ function Techstack() {
           <div className="tech-icons-text">Cloud Build</div>
         </Col>
 
-        {/* DevOps */}
-        {/* <Col xs={6} sm={4} md={2} className="tech-icons">
-          <img src={Docker} alt="Docker" />
-          <div className="tech-icons-text">Docker</div>
-        </Col> */}
-        {/* <Col xs={6} sm={4} md={2} className="tech-icons">
-          <img src={Kubernetes} alt="Kubernetes" />
-          <div className="tech-icons-text">Kubernetes</div>
-        </Col> */}
-
         {/* Tools */}
         <Col xs={6} sm={4} md={2} className="tech-icons">
           <img src={Firebase} alt="Firebase" />
@@ -105,7 +78,7 @@ function Techstack() {
         </Col>
       </Row>
 
-      {/* Optional inline CSS for smaller screens */}
+      {/* Responsive Styles */}
       <style jsx>{`
         .tech-icons img {
           width: 60px;

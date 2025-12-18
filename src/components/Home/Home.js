@@ -110,7 +110,7 @@ function Home() {
 
               <li className="social-icons mx-2 my-1">
                 <a
-                  href="https://www.linkedin.com"
+                  href="https://www.linkedin.com/in/namratha-sringeshwara"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour home-social-icons"

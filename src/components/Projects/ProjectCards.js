@@ -12,7 +12,11 @@ function ProjectCards(props) {
         <Card.Title>{props.title}</Card.Title>
 
         <Card.Text style={{ textAlign: "justify" }}>
-          {props.description}
+          {typeof props.description === "string" ? (
+            props.description
+          ) : (
+            <div style={{ paddingLeft: "15px" }}>{props.description}</div>
+          )}
         </Card.Text>
 
         {/* Render GitHub button ONLY if link exists */}

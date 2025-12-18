@@ -3,14 +3,14 @@ import { Col, Row } from "react-bootstrap";
 import C from "../../Assets/TechIcons/C++.svg";
 import Java from "../../Assets/TechIcons/Java.svg";
 import Javascript from "../../Assets/TechIcons/Javascript.svg";
-import Node from "../../Assets/TechIcons/Node.svg";
+// import Node from "../../Assets/TechIcons/Node.svg";
 import SQL from "../../Assets/TechIcons/SQL.svg";
 import Postgresql from "../../Assets/TechIcons/SQL.svg"; // placeholder for PostgreSQL
-import ReactIcon from "../../Assets/TechIcons/React.svg";
-import Git from "../../Assets/TechIcons/Git.svg";
+// import ReactIcon from "../../Assets/TechIcons/React.svg";
+// import Git from "../../Assets/TechIcons/Git.svg";
 import Firebase from "../../Assets/TechIcons/Firebase.svg";
-import Docker from "../../Assets/TechIcons/Docker.svg";
-import Kubernetes from "../../Assets/TechIcons/Kubernates.svg";
+// import Docker from "../../Assets/TechIcons/Docker.svg";
+// import Kubernetes from "../../Assets/TechIcons/Kubernates.svg";
 import CloudSQL from "../../Assets/TechIcons/cloudsql.png"; // temporary placeholder
 import AppEngine from "../../Assets/TechIcons/SQL.svg"; // temporary placeholder
 import CloudRun from "../../Assets/TechIcons/SQL.svg"; // temporary placeholder

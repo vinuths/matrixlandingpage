@@ -5,7 +5,15 @@ function Particle() {
   return (
     <Particles
       id="tsparticles"
-      style={{ width: "100%", height: "100%" }}
+      style={{
+        width: "100%",
+        height: "100%",
+        position: "absolute",
+        top: 0,
+        left: 0,
+        zIndex: 1,
+        pointerEvents: "none", // <--- this allows clicks to pass through
+      }}
       params={{
         particles: {
           number: {

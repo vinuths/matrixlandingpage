@@ -4,8 +4,6 @@ import homeLogo from "../../Assets/home-main.svg";
 import Particle from "../Particle";
 import Home2 from "./Home2";
 import Type from "./Type";
-// import Techstack from "../About/Techstack";
-// import Github from "../About/Github";
 import {
   AiFillGithub,
   AiOutlineTwitter,
@@ -15,9 +13,14 @@ import { FaLinkedinIn } from "react-icons/fa";
 
 function Home() {
   return (
-    <section>
-      <Container fluid className="home-section" id="home">
-        <Particle />
+    <section style={{ position: "relative" }}>
+      <Particle />
+      <Container
+        fluid
+        className="home-section"
+        id="home"
+        style={{ position: "relative", zIndex: 2 }}
+      >
         <Container className="home-content">
           <Row className="align-items-center">
             <Col xs={12} md={7} className="home-header">
@@ -45,7 +48,7 @@ function Home() {
                 >
                   Bangalore, India | 8861887794 | namrathas1207@gmail.com |{" "}
                   <a
-                    href="https://www.linkedin.com"
+                    href="https://www.linkedin.com/in/namratha-sringeshwara"
                     target="_blank"
                     rel="noreferrer"
                     className="purple"
@@ -61,7 +64,11 @@ function Home() {
                 src={homeLogo}
                 alt="home pic"
                 className="img-fluid"
-                style={{ maxHeight: "350px", width: "100%", objectFit: "contain" }}
+                style={{
+                  maxHeight: "350px",
+                  width: "100%",
+                  objectFit: "contain",
+                }}
               />
             </Col>
           </Row>
@@ -79,7 +86,6 @@ function Home() {
             </p>
 
             <ul className="home-about-social-links d-flex justify-content-center flex-wrap">
-              {/* GitHub - real */}
               <li className="social-icons mx-2 my-1">
                 <a
                   href="https://github.com/namrathas"
@@ -91,7 +97,6 @@ function Home() {
                 </a>
               </li>
 
-              {/* Twitter - generic */}
               <li className="social-icons mx-2 my-1">
                 <a
                   href="https://twitter.com"
@@ -103,7 +108,6 @@ function Home() {
                 </a>
               </li>
 
-              {/* LinkedIn - generic */}
               <li className="social-icons mx-2 my-1">
                 <a
                   href="https://www.linkedin.com"
@@ -115,7 +119,6 @@ function Home() {
                 </a>
               </li>
 
-              {/* Instagram - generic */}
               <li className="social-icons mx-2 my-1">
                 <a
                   href="https://www.instagram.com"

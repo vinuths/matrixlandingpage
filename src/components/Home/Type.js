@@ -14,20 +14,26 @@ function Type() {
         }}
       />
 
-      {/* Responsive styles */}
       <style jsx>{`
         .typewriter-container {
           width: 100%;
-          text-align: center;
-          overflow: hidden;
+          text-align: left; /* align with other text */
+          overflow-wrap: break-word;
+          margin-top: 10px; /* add spacing so it doesn't overlap heading */
         }
 
         .typewriter-container span {
           display: inline-block;
           white-space: normal;
-          word-break: break-word;
-          font-size: clamp(1.1rem, 4vw, 1.6rem);
+          font-size: clamp(1rem, 4vw, 1.5rem); /* responsive font size */
           line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+          .typewriter-container {
+            text-align: center; /* center on mobile */
+            margin-top: 15px;
+          }
         }
       `}</style>
     </div>

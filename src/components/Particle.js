@@ -6,56 +6,48 @@ function Particle() {
     <Particles
       id="tsparticles"
       style={{
-        width: "100%",
-        height: "100%",
         position: "absolute",
         top: 0,
         left: 0,
-        zIndex: 1,
-        pointerEvents: "none", // <--- this allows clicks to pass through
+        width: "100%",
+        height: "100%",
+        zIndex: 0,              // ✅ ALWAYS behind content
+        pointerEvents: "none",  // ✅ allows buttons to work
       }}
-      params={{
+      options={{               // ✅ NOT params
         particles: {
           number: {
-            value: window.innerWidth < 768 ? 80 : 160, // fewer particles on mobile
+            value: window.innerWidth < 768 ? 80 : 160,
             density: {
               enable: true,
-              value_area: 1500,
+              area: 1500,
             },
-          },
-          line_linked: {
-            enable: false,
-            opacity: 0.03,
           },
           move: {
             direction: "right",
-            speed: window.innerWidth < 768 ? 0.02 : 0.05, // slower on mobile
+            speed: window.innerWidth < 768 ? 0.02 : 0.05,
           },
           size: {
             value: 1,
           },
           opacity: {
-            anim: {
+            value: 0.4,
+            animation: {
               enable: true,
               speed: 1,
-              opacity_min: 0.05,
+              minimumValue: 0.05,
             },
+          },
+          links: {
+            enable: false,
           },
         },
         interactivity: {
           events: {
-            onclick: {
-              enable: true,
-              mode: "push",
-            },
-          },
-          modes: {
-            push: {
-              particles_nb: 1,
-            },
+            resize: true,
           },
         },
-        retina_detect: true,
+        retinaDetect: true,
       }}
     />
   );

@@ -1,13 +1,113 @@
 // src/pages/services/VendorCompliance.jsx
 import React from "react";
-import ServicePage from "./ServicePage";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+
+const vendorFeatures = [
+  {
+    title: "Contractor Compliance",
+    description: "Ensure third-party contractors adhere to statutory and labour law requirements",
+    icon: "📑",
+  },
+  {
+    title: "Vendor Audits",
+    description: "Conduct periodic audits to mitigate principal employer risk",
+    icon: "🔍",
+  },
+  {
+    title: "Risk Assessment",
+    description: "Identify compliance gaps and potential liabilities across vendors",
+    icon: "⚖️",
+  },
+  {
+    title: "Workforce Tracking",
+    description: "Monitor deployed workforce, attendance, and safety compliance",
+    icon: "👷",
+  },
+  {
+    title: "Timeline & Alerts",
+    description: "Automated alerts for contract renewals and compliance deadlines",
+    icon: "⏰",
+  },
+  {
+    title: "Document Management",
+    description: "Centralized repository for vendor contracts and statutory documents",
+    icon: "📂",
+  },
+];
 
 const VendorCompliance = () => {
+  const navigate = useNavigate();
+
   return (
-    <ServicePage
-      title="Contractor & Vendor Compliance"
-      description="Manage contractor and vendor compliance efficiently to reduce risk and ensure regulatory adherence."
-    />
+    <section style={{ background: "#1b1429", minHeight: "100vh" }}>
+      {/* HERO SECTION */}
+      <Container
+        fluid
+        className="py-5"
+        style={{
+          background: "#2a1f3d",
+          borderBottom: "1px solid rgba(255,255,255,0.1)",
+        }}
+      >
+        <Container className="text-center py-5">
+          <h1 className="fw-bold mb-3 text-white">
+            Contractor & Vendor Compliance
+          </h1>
+          <p
+            className="mb-4 text-light opacity-75"
+            style={{ maxWidth: "700px", margin: "0 auto" }}
+          >
+            Monitor third-party contractors and vendors to ensure statutory
+            compliance and reduce principal employer risk.
+          </p>
+          <Button
+            variant="primary"
+            className="me-3 px-4 py-2"
+            onClick={() => navigate("/contact")}
+          >
+            Book a Demo
+          </Button>
+          <Button
+            variant="outline-light"
+            className="px-4 py-2"
+            onClick={() => navigate("/")}
+          >
+            Back to Home
+          </Button>
+        </Container>
+      </Container>
+
+      {/* FEATURES SECTION */}
+      <Container className="py-5">
+        <h2 className="text-center fw-bold mb-5 text-white">
+          Key Features
+        </h2>
+        <Row className="gy-4 justify-content-center">
+          {vendorFeatures.map((feature, idx) => (
+            <Col xs={12} sm={6} md={4} key={idx}>
+              <Card
+                className="text-center p-4 h-100 border-0 shadow"
+                style={{
+                  borderRadius: "16px",
+                  background: "#2a1f3d",
+                  color: "#fff",
+                  transition: "0.3s",
+                }}
+              >
+                <div style={{ fontSize: "3rem", marginBottom: "15px" }}>
+                  {feature.icon}
+                </div>
+                <h5 className="fw-bold">{feature.title}</h5>
+                <p className="text-light opacity-75">
+                  {feature.description}
+                </p>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </section>
   );
 };
 

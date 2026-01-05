@@ -11,12 +11,14 @@ import {
   AiOutlineMail,
 } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
+import { AiOutlineLogin } from "react-icons/ai";
+
 import logo from "../Assets/Logo11.png"; // adjust relative path based on Navbar.js location
+
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
   const location = useLocation();
-https://github.com/vinuths/matrixlandingpage.git
 
   useEffect(() => {
     const scrollHandler = () => {
@@ -59,7 +61,7 @@ https://github.com/vinuths/matrixlandingpage.git
           <img
             src={logo}
             alt="Matrix HR Technologies"
-            style={{ height: "40px", cursor: "pointer" }}
+            style={{ height: "60px", cursor: "pointer" }} // ✅ increased size
           />
         </Navbar.Brand>
 
@@ -191,13 +193,13 @@ https://github.com/vinuths/matrixlandingpage.git
               >
                 Contractor & Vendor Compliance
               </NavDropdown.Item>
-              <NavDropdown.Item
+              {/* <NavDropdown.Item
                 as={Link}
                 to="/services/inspection-readiness"
                 onClick={() => updateExpanded(false)}
               >
                 Audit & Inspection Readiness
-              </NavDropdown.Item>
+              </NavDropdown.Item> */}
               <NavDropdown.Item
                 as={Link}
                 to="/services/multi-state-compliance"
@@ -221,6 +223,29 @@ https://github.com/vinuths/matrixlandingpage.git
               </NavDropdown.Item>
             </NavDropdown>
 
+          {/* ✅ DEMO BUTTON */}
+<Nav.Item>
+  <Nav.Link
+    as={Link}
+    to="/demo"  // <-- match the route in App.js
+    style={linkStyle("/demo")}
+    onClick={() => updateExpanded(false)}
+  >
+    Demo
+  </Nav.Link>
+</Nav.Item>
+   
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/elibrary"
+                style={linkStyle("/elibrary")}
+                onClick={() => updateExpanded(false)}
+              >
+                <CgFileDocument /> E-Library
+              </Nav.Link>
+            </Nav.Item>
+
             {/* ✅ CONTACT US ADDED */}
             <Nav.Item>
               <Nav.Link
@@ -230,6 +255,26 @@ https://github.com/vinuths/matrixlandingpage.git
                 onClick={() => updateExpanded(false)}
               >
                 <AiOutlineMail /> Contact Us
+              </Nav.Link>
+            </Nav.Item>
+
+            {/* ✅ LOGIN BUTTON */}
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/login"
+                style={{
+                  marginLeft: "16px",
+                  padding: "8px 18px",
+                  borderRadius: "20px",
+                  background: "#a259ff",
+                  color: "#ffffff",
+                  fontWeight: "600",
+                  transition: "0.3s",
+                }}
+                onClick={() => updateExpanded(false)}
+              >
+                <AiOutlineLogin /> Login
               </Nav.Link>
             </Nav.Item>
           </Nav>

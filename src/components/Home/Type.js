@@ -6,7 +6,7 @@ function Type() {
     <div className="typewriter-container">
       <Typewriter
         options={{
-          strings: ["Technical Analyst"],
+          strings: ["Matrix Hr Technologies"],
           autoStart: true,
           loop: true,
           deleteSpeed: 50,

@@ -3,10 +3,13 @@ import Preloader from "../src/components/Pre";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
-import Projects from "./components/Projects/Projects";
+// import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer";
-import Resume from "./components/Resume/ResumeNew";
-import Contact from "./components/Contact/Contact"; // ✅ ADD THIS
+// import Resume from "./components/Resume/ResumeNew";
+import Contact from "./components/Contact/Contact";
+
+// ✅ Login (ALL logic inside Login.jsx)
+import Login from "./pages/services/Login/Login";
 
 // ✅ Services Pages
 import ComplianceMgmt from "./pages/services/ComplianceMgmt";
@@ -22,7 +25,8 @@ import InspectionReadiness from "./pages/services/InspectionReadiness";
 import MultiStateCompliance from "./pages/services/MultiStateCompliance";
 import ComplianceTracking from "./pages/services/ComplianceTracking";
 import RiskManagement from "./pages/services/RiskManagement";
-
+import Demo from "./pages/services/demo/Demo";
+import ELibrary from "./pages/services/ELibrary";
 import {
   BrowserRouter as Router,
   Route,
@@ -33,6 +37,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Typewriter from "typewriter-effect";
 
 function App() {
   const [load, upadateLoad] = useState(true);
@@ -41,7 +46,6 @@ function App() {
     const timer = setTimeout(() => {
       upadateLoad(false);
     }, 1200);
-
     return () => clearTimeout(timer);
   }, []);
 
@@ -51,15 +55,20 @@ function App() {
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         <Navbar />
         <ScrollToTop />
+
         <Routes>
-          {/* Main Pages */}
+          {/* ================= MAIN PAGES ================= */}
           <Route path="/" element={<Home />} />
-          <Route path="/project" element={<Projects />} />
+          {/* <Route path="/project" element={<Projects />} /> */}
           <Route path="/about" element={<About />} />
-          <Route path="/resume" element={<Resume />} />
+          {/* <Route path="/resume" element={<Resume />} /> */}
           <Route path="/contact" element={<Contact />} />
 
-          {/* ✅ Services Pages */}
+          {/* ================= LOGIN & DASHBOARD (SAME COMPONENT) ================= */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard/:role" element={<Login />} />
+
+          {/* ================= SERVICES ================= */}
           <Route path="/services/compliance-mgmt" element={<ComplianceMgmt />} />
           <Route path="/services/payroll" element={<Payroll />} />
           <Route path="/services/factory-license" element={<FactoryLicense />} />
@@ -73,10 +82,16 @@ function App() {
           <Route path="/services/multi-state-compliance" element={<MultiStateCompliance />} />
           <Route path="/services/compliance-tracking" element={<ComplianceTracking />} />
           <Route path="/services/risk-management" element={<RiskManagement />} />
-
-          {/* Redirect unknown routes to home */}
+         
+          {/* ================= FALLBACK ================= */}
           <Route path="*" element={<Navigate to="/" />} />
+           <Route path="/demo" element={<Demo />} />
+          
+           {/* ===== ELIBRARY ===== */}
+        <Route path="/elibrary" element={<ELibrary />} />
+
         </Routes>
+
         <Footer />
       </div>
     </Router>

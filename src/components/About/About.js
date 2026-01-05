@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Particle from "../Particle";
 import laptopImg from "../../Assets/about.png";
+import companyLogo from "../../Assets/Logo11.png"; // ✅ ADD THIS
 import { useNavigate } from "react-router-dom";
 
 function About() {
@@ -25,13 +26,38 @@ function About() {
       >
         <Container>
           {/* ================= HERO ================= */}
-          <Row className="justify-content-center text-center mb-5">
-            <Col md={10}>
+          <Row className="align-items-center mb-5">
+            {/* ✅ Left: Big logo with animation */}
+            <Col md={4} className="text-center mb-3 mb-md-0">
+              <img
+                src={companyLogo}
+                alt="Matrix HR Technologies Logo"
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                  animation: "logoFloat 4s ease-in-out infinite",
+                  filter: "drop-shadow(0 8px 25px rgba(0,0,0,0.5))",
+                  borderRadius: "12px",
+                }}
+              />
+              {/* Logo animation keyframes */}
+              <style>
+                {`
+                  @keyframes logoFloat {
+                    0% { transform: translateY(0px); }
+                    50% { transform: translateY(-10px); }
+                    100% { transform: translateY(0px); }
+                  }
+                `}
+              </style>
+            </Col>
+
+            {/* ✅ Right: Heading + subheading + button */}
+            <Col md={8} className="text-center text-md-start">
               <h1 className="fw-bold mb-3 text-white">
                 Matrix HR Technologies
               </h1>
 
-              {/* ✅ Subheading color updated */}
               <p
                 className="fs-5 mb-3"
                 style={{ color: "rgba(255,255,255,0.85)" }}

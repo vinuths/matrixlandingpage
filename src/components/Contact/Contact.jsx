@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import Particle from "../Particle";
+import { FaWhatsapp } from "react-icons/fa";
 
 function Contact() {
   const [form, setForm] = useState({
@@ -23,6 +24,34 @@ function Contact() {
   return (
     <>
       <Particle />
+
+      {/* ===== WHATSAPP FLOATING BUTTON ===== */}
+      <a
+        href="https://wa.me/919999999999?text=Hello%20Matrix%20HR%20Technologies,%20I%20would%20like%20to%20know%20more."
+        target="_blank"
+        rel="noreferrer"
+        style={{
+          position: "fixed",
+          bottom: "25px",
+          right: "25px",
+          width: "60px",
+          height: "60px",
+          backgroundColor: "#25D366",
+          borderRadius: "50%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          boxShadow: "0 0 0 rgba(37, 211, 102, 0.6)",
+          animation: "pulse 2s infinite",
+          zIndex: 9999,
+          color: "#fff",
+          textDecoration: "none",
+        }}
+      >
+        <FaWhatsapp size={32} />
+      </a>
+
+      {/* ===== PAGE CONTENT ===== */}
       <Container fluid className="contact-section" style={{ paddingBottom: "80px" }}>
         <Container>
           {/* ===== Heading ===== */}
@@ -101,7 +130,6 @@ function Contact() {
 
             {/* Map & Address */}
             <Col md={6} style={{ marginBottom: "30px" }}>
-              {/* Wrap map and address inside a flex column */}
               <div
                 style={{
                   display: "flex",
@@ -114,7 +142,6 @@ function Contact() {
                   padding: "15px",
                 }}
               >
-                {/* Map */}
                 <div style={{ flex: 1, marginBottom: "15px" }}>
                   <iframe
                     title="Matrix HR Technologies Location"
@@ -129,12 +156,11 @@ function Contact() {
                   />
                 </div>
 
-                {/* Address */}
                 <div style={{ color: "#000" }}>
                   <h5 style={{ fontWeight: "bold" }}>Address</h5>
                   <p>
-                    Matrix HR Technologies, 320, Matrix Square, 7th Main Rd, BTM 2nd Stage,
-                    BTM Layout, Bengaluru, Karnataka 560076
+                    Matrix HR Technologies, 320, Matrix Square, 7th Main Rd,
+                    BTM 2nd Stage, BTM Layout, Bengaluru, Karnataka 560076
                   </p>
                 </div>
               </div>
@@ -142,6 +168,23 @@ function Contact() {
           </Row>
         </Container>
       </Container>
+
+      {/* ===== PULSE ANIMATION ===== */}
+      <style>
+        {`
+          @keyframes pulse {
+            0% {
+              box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+            }
+            70% {
+              box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+              box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+          }
+        `}
+      </style>
     </>
   );
 }

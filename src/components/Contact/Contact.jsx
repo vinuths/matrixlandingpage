@@ -68,64 +68,73 @@ function Contact() {
           <Row className="justify-content-center">
             {/* Contact Form */}
             <Col md={6} style={{ marginBottom: "30px" }}>
-              <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3">
-                  <Form.Control
-                    type="text"
-                    placeholder="Your Name"
-                    name="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    required
-                  />
-                </Form.Group>
+              {/* ✅ INNER CONTAINER ADDED */}
+              <Container
+                style={{
+                  background: "#ffffff",
+                  padding: "30px",
+                  borderRadius: "12px",
+                }}
+              >
+                <Form onSubmit={handleSubmit}>
+                  <Form.Group className="mb-3">
+                    <Form.Control
+                      type="text"
+                      placeholder="Your Name"
+                      name="name"
+                      value={form.name}
+                      onChange={handleChange}
+                      required
+                    />
+                  </Form.Group>
 
-                <Form.Group className="mb-3">
-                  <Form.Control
-                    type="email"
-                    placeholder="Your Email"
-                    name="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    required
-                  />
-                </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Control
+                      type="email"
+                      placeholder="Your Email"
+                      name="email"
+                      value={form.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </Form.Group>
 
-                <Form.Group className="mb-3">
-                  <Form.Control
-                    type="text"
-                    placeholder="Phone Number"
-                    name="phone"
-                    value={form.phone}
-                    onChange={handleChange}
-                  />
-                </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Control
+                      type="text"
+                      placeholder="Phone Number"
+                      name="phone"
+                      value={form.phone}
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
 
-                <Form.Group className="mb-3">
-                  <Form.Control
-                    as="textarea"
-                    rows={6}
-                    placeholder="Your Message"
-                    name="message"
-                    value={form.message}
-                    onChange={handleChange}
-                    required
-                  />
-                </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Control
+                      as="textarea"
+                      rows={6}
+                      placeholder="Your Message"
+                      name="message"
+                      value={form.message}
+                      onChange={handleChange}
+                      required
+                    />
+                  </Form.Group>
 
-                <Button
-                  variant="primary"
-                  type="submit"
-                  style={{
-                    background: "#a259ff",
-                    border: "none",
-                    width: "100%",
-                    padding: "10px",
-                  }}
-                >
-                  Send Message
-                </Button>
-              </Form>
+                  <Button
+                    variant="primary"
+                    type="submit"
+                    style={{
+                      background: "#a259ff",
+                      border: "none",
+                      width: "100%",
+                      padding: "10px",
+                    }}
+                  >
+                    Send Message
+                  </Button>
+                </Form>
+              </Container>
             </Col>
 
             {/* Map & Address */}

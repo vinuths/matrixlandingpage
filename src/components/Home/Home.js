@@ -37,6 +37,11 @@ function Home() {
 
     return () => clearInterval(interval);
   }, []);
+  
+useEffect(() => {
+  document.body.style.overflowX = "hidden";
+  document.documentElement.style.overflowX = "hidden";
+}, []);
 
   // Loader timeout
   useEffect(() => {

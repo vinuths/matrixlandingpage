@@ -28,16 +28,40 @@ function NavBar() {
     return () => window.removeEventListener("scroll", scrollHandler);
   }, []);
 
+  // ✅ Updated linkStyle for smaller navbar items
   const linkStyle = (path) => ({
     color: location.pathname === path ? "#a259ff" : "#ffffff",
     fontWeight: location.pathname === path ? "600" : "500",
-    margin: "0 12px",
+    margin: "0 8px",       // reduced spacing
     transition: "all 0.3s ease",
     display: "flex",
     alignItems: "center",
-    gap: "6px",
+    gap: "4px",            // reduced icon-text gap
     whiteSpace: "nowrap",
+    fontSize: "0.85rem",   // smaller font
+    padding: "4px 6px",    // smaller padding
   });
+
+  // ✅ Updated dropdown item style
+  const dropdownItemStyle = {
+    fontSize: "0.85rem",
+    padding: "4px 10px",
+  };
+
+  // ✅ Updated login button style
+  const loginButtonStyle = {
+    marginLeft: "12px",
+    padding: "4px 12px",
+    borderRadius: "16px",
+    background: "#a259ff",
+    color: "#ffffff",
+    fontWeight: "600",
+    fontSize: "0.85rem",
+    transition: "0.3s",
+    display: "flex",
+    alignItems: "center",
+    gap: "4px",
+  };
 
   return (
     <Navbar
@@ -61,7 +85,7 @@ function NavBar() {
           <img
             src={logo}
             alt="Matrix HR Technologies"
-            style={{ height: "60px", cursor: "pointer" }} // ✅ increased size
+            style={{ height: "60px", cursor: "pointer" }} // ✅ kept logo size
           />
         </Navbar.Brand>
 
@@ -128,12 +152,14 @@ function NavBar() {
                 fontWeight: location.pathname.startsWith("/services")
                   ? "600"
                   : "500",
+                fontSize: "0.85rem",
               }}
             >
               <NavDropdown.Item
                 as={Link}
                 to="/services/compliance-mgmt"
                 onClick={() => updateExpanded(false)}
+                style={dropdownItemStyle}
               >
                 Establishment Compliances
               </NavDropdown.Item>
@@ -141,6 +167,7 @@ function NavBar() {
                 as={Link}
                 to="/services/payroll"
                 onClick={() => updateExpanded(false)}
+                style={dropdownItemStyle}
               >
                 Payroll Administration
               </NavDropdown.Item>
@@ -148,6 +175,7 @@ function NavBar() {
                 as={Link}
                 to="/services/factory-license"
                 onClick={() => updateExpanded(false)}
+                style={dropdownItemStyle}
               >
                 Factory Compliances
               </NavDropdown.Item>
@@ -155,6 +183,7 @@ function NavBar() {
                 as={Link}
                 to="/services/clra"
                 onClick={() => updateExpanded(false)}
+                style={dropdownItemStyle}
               >
                 CLRA Compliances
               </NavDropdown.Item>
@@ -162,6 +191,7 @@ function NavBar() {
                 as={Link}
                 to="/services/audits"
                 onClick={() => updateExpanded(false)}
+                style={dropdownItemStyle}
               >
                 Audit Management
               </NavDropdown.Item>
@@ -169,6 +199,7 @@ function NavBar() {
                 as={Link}
                 to="/services/hr-shared-services"
                 onClick={() => updateExpanded(false)}
+                style={dropdownItemStyle}
               >
                 Register Management
               </NavDropdown.Item>
@@ -176,6 +207,7 @@ function NavBar() {
                 as={Link}
                 to="/services/statutory-returns"
                 onClick={() => updateExpanded(false)}
+                style={dropdownItemStyle}
               >
                 Statutory Returns & Filings
               </NavDropdown.Item>
@@ -183,6 +215,7 @@ function NavBar() {
                 as={Link}
                 to="/services/social-security"
                 onClick={() => updateExpanded(false)}
+                style={dropdownItemStyle}
               >
                 Social Security Compliance
               </NavDropdown.Item>
@@ -190,6 +223,7 @@ function NavBar() {
                 as={Link}
                 to="/services/vendor-compliance"
                 onClick={() => updateExpanded(false)}
+                style={dropdownItemStyle}
               >
                 Contractor & Vendor Compliance
               </NavDropdown.Item>
@@ -197,6 +231,7 @@ function NavBar() {
                 as={Link}
                 to="/services/inspection-readiness"
                 onClick={() => updateExpanded(false)}
+                style={dropdownItemStyle}
               >
                 Audit & Inspection Readiness
               </NavDropdown.Item> */}
@@ -204,6 +239,7 @@ function NavBar() {
                 as={Link}
                 to="/services/multi-state-compliance"
                 onClick={() => updateExpanded(false)}
+                style={dropdownItemStyle}
               >
                 Multi-State Compliance
               </NavDropdown.Item>
@@ -211,6 +247,7 @@ function NavBar() {
                 as={Link}
                 to="/services/compliance-tracking"
                 onClick={() => updateExpanded(false)}
+                style={dropdownItemStyle}
               >
                 Compliance Tracking & Alerts
               </NavDropdown.Item>
@@ -218,23 +255,24 @@ function NavBar() {
                 as={Link}
                 to="/services/risk-management"
                 onClick={() => updateExpanded(false)}
+                style={dropdownItemStyle}
               >
                 Governance & Risk Management
               </NavDropdown.Item>
             </NavDropdown>
 
-          {/* ✅ DEMO BUTTON */}
-<Nav.Item>
-  <Nav.Link
-    as={Link}
-    to="/demo"  // <-- match the route in App.js
-    style={linkStyle("/demo")}
-    onClick={() => updateExpanded(false)}
-  >
-    Demo
-  </Nav.Link>
-</Nav.Item>
-   
+            {/* ✅ DEMO BUTTON */}
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/demo" // <-- match the route in App.js
+                style={linkStyle("/demo")}
+                onClick={() => updateExpanded(false)}
+              >
+                Demo
+              </Nav.Link>
+            </Nav.Item>
+
             <Nav.Item>
               <Nav.Link
                 as={Link}
@@ -245,7 +283,7 @@ function NavBar() {
                 <CgFileDocument /> E-Library
               </Nav.Link>
             </Nav.Item>
-
+        
             {/* ✅ CONTACT US ADDED */}
             <Nav.Item>
               <Nav.Link
@@ -263,15 +301,7 @@ function NavBar() {
               <Nav.Link
                 as={Link}
                 to="/login"
-                style={{
-                  marginLeft: "16px",
-                  padding: "8px 18px",
-                  borderRadius: "20px",
-                  background: "#a259ff",
-                  color: "#ffffff",
-                  fontWeight: "600",
-                  transition: "0.3s",
-                }}
+                style={loginButtonStyle}
                 onClick={() => updateExpanded(false)}
               >
                 <AiOutlineLogin /> Login

@@ -9,7 +9,7 @@ const Login = () => {
 
   // ✅ CENTRALIZED ROUTES
   const roleRoutes = {
-    matrix: "https://ce.matrixhrtech.com/",
+    // matrix: "https://ce.matrixhrtech.com/",
     executive: "https://executive.matrixhrtech.com/",
     auditor: "https://auditor.matrixhrtech.com/",
     company: "https://client.matrixhrtech.com/",
@@ -67,7 +67,7 @@ const Login = () => {
               className="justify-content-center gap-2"
             >
               {[
-                { key: "matrix", label: "Matrix Executive" },
+                // { key: "matrix", label: "Matrix Executive" },
                 { key: "executive", label: "Executive" },
                 { key: "auditor", label: "Auditor" },
                 { key: "company", label: "Company" },

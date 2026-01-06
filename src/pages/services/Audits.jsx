@@ -91,7 +91,7 @@ const Audits = () => {
           ))}
         </Row>
       </Container>
- 
+
       {/* BENEFITS SECTION */}
       <Container className="py-5" style={{ background: "#1b1429" }}>
         <h2 className="text-center fw-bold mb-5 text-white">Benefits</h2>

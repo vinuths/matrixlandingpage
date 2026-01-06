@@ -23,7 +23,6 @@ import partner18 from "../../Assets/partners/strides.jfif";
 import partner19 from "../../Assets/partners/credenceholdins.jfif";
 import partner20 from "../../Assets/partners/snnbuliders.jfif";
 
-
 const partners = [
   partner1,
   partner2,
@@ -68,9 +67,9 @@ const Partners = () => {
       </style>
 
       <Container className="py-5">
-        <h2 className="text-center fw-bold mb-4 text-white">
+        <h4 className="text-center fw-bold mb-4 text-white">
           Our Trusted Partners
-        </h2>
+        </h4>
 
         <div style={{ overflow: "hidden", width: "100%" }}>
           <div
@@ -78,40 +77,51 @@ const Partners = () => {
               display: "flex",
               alignItems: "center",
               width: "max-content",
-              animation: "partnerScroll 28s linear infinite",
+              animation: "partnerScroll 120s linear infinite",
             }}
           >
             {[...partners, ...partners].map((logo, index) => (
               <div
                 key={index}
                 style={{
-                  width: "220px",
-                  padding: "20px",
+                  width: "160px", // ✅ reduced container
+                  padding: "12px",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
                 }}
               >
-                <img
-                  src={logo}
-                  alt="partner"
+                <div
                   style={{
-                    maxWidth: "150px",
-                    maxHeight: "80px",
-                    objectFit: "contain",
+                    width: "120px",        // ✅ fixed logo box
+                    height: "60px",
                     background: "#ffffff",
-                    padding: "10px",
                     borderRadius: "10px",
                     boxShadow: "0 6px 20px rgba(0,0,0,0.35)",
-                    transition: "all 1s ease",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    transition: "all 0.3s ease",
                   }}
-                  onMouseEnter={(e) => {
-                    e.target.style.transform = "scale(1.08)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.transform = "scale(1)";
-                  }}
-                />
+                >
+                  <img
+                    src={logo}
+                    alt="partner"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain", // ✅ equal visual size
+                      padding: "8px",
+                      transition: "all 0.3s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.transform = "scale(1.08)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.transform = "scale(1)";
+                    }}
+                  />
+                </div>
               </div>
             ))}
           </div>

@@ -18,6 +18,7 @@ import logo from "../Assets/Logo11.png"; // adjust relative path based on Navbar
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
+  const [hoveredPath, setHoveredPath] = useState(null); // ✅ added for hover
   const location = useLocation();
 
   useEffect(() => {
@@ -28,20 +29,28 @@ function NavBar() {
     return () => window.removeEventListener("scroll", scrollHandler);
   }, []);
 
-  // ✅ Updated linkStyle for smaller navbar items
+  // ✅ Updated linkStyle for smaller navbar items + hover purple effect
   const linkStyle = (path) => ({
-    color: location.pathname === path ? "#a259ff" : "#ffffff",
+    color: location.pathname === path || hoveredPath === path ? "#a259ff" : "#ffffff",
     fontWeight: location.pathname === path ? "600" : "500",
-    margin: "0 8px",       // reduced spacing
+    margin: "0 8px",
     transition: "all 0.3s ease",
     display: "flex",
     alignItems: "center",
-    gap: "4px",            // reduced icon-text gap
+    gap: "4px",
     whiteSpace: "nowrap",
-    fontSize: "0.85rem",   // smaller font
-    padding: "4px 6px",    // smaller padding
+    fontSize: "0.85rem",
+    padding: "6px 10px",
+    borderRadius: "8px",
+    background:
+      hoveredPath === path ? "rgba(162,89,255,0.15)" : "transparent",
+    boxShadow:
+      hoveredPath === path ? "0 0 8px rgba(162,89,255,0.6)" : "none",
+    borderBottom:
+      hoveredPath === path ? "2px solid #a259ff" : "2px solid transparent",
   });
 
+  
   // ✅ Updated dropdown item style
   const dropdownItemStyle = {
     fontSize: "0.85rem",
@@ -102,6 +111,8 @@ function NavBar() {
                 as={Link}
                 to="/"
                 style={linkStyle("/")}
+                onMouseEnter={() => setHoveredPath("/")}
+                onMouseLeave={() => setHoveredPath(null)}
                 onClick={() => updateExpanded(false)}
               >
                 <AiOutlineHome /> Home
@@ -113,6 +124,8 @@ function NavBar() {
                 as={Link}
                 to="/about"
                 style={linkStyle("/about")}
+                onMouseEnter={() => setHoveredPath("/about")}
+                onMouseLeave={() => setHoveredPath(null)}
                 onClick={() => updateExpanded(false)}
               >
                 <AiOutlineUser /> About
@@ -145,14 +158,18 @@ function NavBar() {
             <NavDropdown
               title="Services"
               id="services-dropdown"
+              onMouseEnter={() => setHoveredPath("/services")}
+              onMouseLeave={() => setHoveredPath(null)}
               style={{
-                color: location.pathname.startsWith("/services")
-                  ? "#a259ff"
-                  : "#ffffff",
-                fontWeight: location.pathname.startsWith("/services")
-                  ? "600"
-                  : "500",
+                color: hoveredPath === "/services" ? "#a259ff" : "#ffffff",
+                fontWeight: "500",
                 fontSize: "0.85rem",
+                background:
+                  hoveredPath === "/services"
+                    ? "rgba(162,89,255,0.15)"
+                    : "transparent",
+                borderRadius: "8px",
+                padding: "6px 10px",
               }}
             >
               <NavDropdown.Item
@@ -265,8 +282,10 @@ function NavBar() {
             <Nav.Item>
               <Nav.Link
                 as={Link}
-                to="/demo" // <-- match the route in App.js
+                to="/demo"
                 style={linkStyle("/demo")}
+                onMouseEnter={() => setHoveredPath("/demo")}
+                onMouseLeave={() => setHoveredPath(null)}
                 onClick={() => updateExpanded(false)}
               >
                 Demo
@@ -278,6 +297,8 @@ function NavBar() {
                 as={Link}
                 to="/elibrary"
                 style={linkStyle("/elibrary")}
+                onMouseEnter={() => setHoveredPath("/elibrary")}
+                onMouseLeave={() => setHoveredPath(null)}
                 onClick={() => updateExpanded(false)}
               >
                 <CgFileDocument /> E-Library
@@ -290,6 +311,8 @@ function NavBar() {
                 as={Link}
                 to="/contact"
                 style={linkStyle("/contact")}
+                onMouseEnter={() => setHoveredPath("/contact")}
+                onMouseLeave={() => setHoveredPath(null)}
                 onClick={() => updateExpanded(false)}
               >
                 <AiOutlineMail /> Contact Us
@@ -302,6 +325,8 @@ function NavBar() {
                 as={Link}
                 to="/login"
                 style={loginButtonStyle}
+                onMouseEnter={() => setHoveredPath("/login")}
+                onMouseLeave={() => setHoveredPath(null)}
                 onClick={() => updateExpanded(false)}
               >
                 <AiOutlineLogin /> Login

@@ -9,6 +9,7 @@ import Logo1 from "../../Assets/Logo1.png"; // Adjust relative path from the com
 import serviceimage1 from "../../Assets/20944573.jpg"; // Adjust relative path from the component file
 import serviceimage2 from "../../Assets/19728.jpg"; // Adjust relative path from the component file
 import serviceimage3 from "../../Assets/19197135.jpg"; // Adjust relative path from the component file
+import ComplianceChatbot from "../ComplianceChatbot";
 
 const heroTexts = [
   {
@@ -38,10 +39,10 @@ function Home() {
     return () => clearInterval(interval);
   }, []);
   
-useEffect(() => {
-  document.body.style.overflowX = "hidden";
-  document.documentElement.style.overflowX = "hidden";
-}, []);
+  useEffect(() => {
+    document.body.style.overflowX = "hidden";
+    document.documentElement.style.overflowX = "hidden";
+  }, []);
 
   // Loader timeout
   useEffect(() => {
@@ -104,7 +105,7 @@ useEffect(() => {
               <h1
                 className="mb-3 fw-bold text-white"
                 style={{
-                  fontSize: "2.2rem",
+                  fontSize: "1.9rem",   // reduced
                   lineHeight: "1.3",
                   maxWidth: "650px",
                 }}
@@ -112,7 +113,12 @@ useEffect(() => {
                 {currentHero.title}
               </h1>
 
-              <p className="text-light opacity-75">{currentHero.text}</p>
+              <p
+                className="text-light opacity-75"
+                style={{ fontSize: "0.95rem" }}   // reduced
+              >
+                {currentHero.text}
+              </p>
 
               <Button variant="primary" as={Link} to="/contact" className="me-3">
                 Get Started
@@ -131,9 +137,16 @@ useEffect(() => {
         </Container>
       </Container>
 
+
+
       {/* ========== SERVICES (REDESIGNED) ========== */}
       <Container className="py-5" style={{ position: "relative", zIndex: 2 }}>
-        <h2 className="text-center fw-bold mb-5 text-white">Our Services</h2>
+        <h4
+          className="text-center fw-bold mb-5 text-white"
+          style={{ fontSize: "1.6rem" }}   // reduced
+        >
+          Our Services
+        </h4>
 
         {/* ===== BLOCK 1 : LEFT BUTTONS | RIGHT IMAGE ===== */}
         <Row className="align-items-center mb-5">
@@ -150,7 +163,7 @@ useEffect(() => {
                 as={Link}
                 to={service.path}
                 className="w-100 mb-3 fw-bold"
-                style={{ padding: "16px", borderRadius: "12px" }}
+                style={{ padding: "16px", borderRadius: "12px", fontSize: "0.9rem" }} // reduced
               >
                 {service.title}
               </Button>
@@ -191,7 +204,7 @@ useEffect(() => {
                 as={Link}
                 to={service.path}
                 className="w-100 mb-3 fw-bold"
-                style={{ padding: "16px", borderRadius: "12px" }}
+                style={{ padding: "16px", borderRadius: "12px", fontSize: "0.9rem" }} // reduced
               >
                 {service.title}
               </Button>
@@ -215,7 +228,7 @@ useEffect(() => {
                 as={Link}
                 to={service.path}
                 className="w-100 mb-3 fw-bold"
-                style={{ padding: "16px", borderRadius: "12px" }}
+                style={{ padding: "16px", borderRadius: "12px", fontSize: "0.9rem" }} // reduced
               >
                 {service.title}
               </Button>
@@ -247,6 +260,8 @@ useEffect(() => {
 
       <HomeAchievements />
       <Partners />
+      <ComplianceChatbot />
+
     </section>
   );
 }

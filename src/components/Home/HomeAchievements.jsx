@@ -61,7 +61,7 @@ const HomeAchievements = () => {
       }}
     >
       <Container>
-        <h2 className="text-center fw-bold mb-4">Our Achievements</h2>
+        <h4 className="text-center fw-bold mb-4">Our Achievements</h4>
         <Row>
           {achievementsData.map((ach, i) => (
             <Col md={3} sm={6} key={i} className="text-center mb-3">

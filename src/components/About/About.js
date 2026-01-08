@@ -64,14 +64,29 @@ function About() {
               >
                 “Empowering HR through Technology and Compliance Excellence.”
               </p>
+<Button
+  onClick={() => navigate("/contact")}
+  style={{
+    background: "linear-gradient(135deg, #d27147 0%, #f4a261 100%)", // ✅ orange gradient
+    border: "none",
+    color: "#ffffff",
+    fontWeight: "600",
+    padding: "10px 25px",
+    borderRadius: "8px",
+    cursor: "pointer",
+    transition: "0.3s",
+    fontSize: "0.9rem",
+  }}
+  onMouseEnter={(e) => {
+    e.target.style.filter = "brightness(1.1)";
+  }}
+  onMouseLeave={(e) => {
+    e.target.style.filter = "brightness(1)";
+  }}
+>
+  Book a Demo
+</Button>
 
-              <Button
-                variant="primary"
-                className="mt-3"
-                onClick={() => navigate("/contact")}
-              >
-                Book a Demo
-              </Button>
             </Col>
           </Row>
 

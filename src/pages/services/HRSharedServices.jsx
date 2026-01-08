@@ -1,6 +1,6 @@
 // src/pages/services/HRSharedServices.jsx
-import React from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const features = [
@@ -46,22 +46,58 @@ const benefits = [
 
 const HRSharedServices = () => {
   const navigate = useNavigate();
+  const [hoverDemo, setHoverDemo] = useState(false);
+  const [hoverHome, setHoverHome] = useState(false);
 
   return (
-    <section style={{ background: "#1b1429", minHeight: "100vh" }}>
+    <section style={{ background: "linear-gradient(135deg, #013879 0%, #CCEBFD 100%)", minHeight: "100vh" }}>
       {/* HERO SECTION */}
-      <Container fluid className="py-5" style={{ background: "#2a1f3d", borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
+      <Container fluid className="py-5" style={{ background: "linear-gradient(135deg, #013879 0%, #CCEBFD 100%)", borderBottom: "1px solid rgba(0,0,0,0.1)" }}>
         <Container className="text-center py-5">
           <h1 className="fw-bold mb-3 text-white">Register Management</h1>
-          <p className="mb-4 text-light opacity-75" style={{ maxWidth: "700px", margin: "0 auto" }}>
+          <p className="mb-4 text-white opacity-75" style={{ maxWidth: "700px", margin: "0 auto" }}>
             Manage HR registers and statutory records effortlessly with our professional services.
           </p>
-          <Button variant="primary" className="me-3 px-4 py-2" onClick={() => navigate("/contact")}>
+
+          {/* ORANGE BUTTONS */}
+          <button
+            onClick={() => navigate("/contact")}
+            onMouseEnter={() => setHoverDemo(true)}
+            onMouseLeave={() => setHoverDemo(false)}
+            style={{
+              backgroundColor: hoverDemo ? "#b55b36" : "#d27147",
+              border: "none",
+              color: "#ffffff",
+              padding: "8px 20px",
+              marginRight: "12px",
+              borderRadius: "6px",
+              fontWeight: "500",
+              fontSize: "0.9rem",
+              cursor: "pointer",
+              transition: "0.3s",
+            }}
+          >
             Book a Demo
-          </Button>
-          <Button variant="outline-light" className="px-4 py-2" onClick={() => navigate("/")}>
+          </button>
+
+          <button
+            onClick={() => navigate("/")}
+            onMouseEnter={() => setHoverHome(true)}
+            onMouseLeave={() => setHoverHome(false)}
+            style={{
+              backgroundColor: hoverHome ? "#b55b36" : "#d27147",
+              border: "none",
+              color: "#ffffff",
+              padding: "8px 20px",
+              borderRadius: "6px",
+              fontWeight: "500",
+              fontSize: "0.9rem",
+              cursor: "pointer",
+              transition: "0.3s",
+            }}
+          >
             Back to Home
-          </Button>
+          </button>
         </Container>
       </Container>
 
@@ -71,10 +107,13 @@ const HRSharedServices = () => {
         <Row className="gy-4 justify-content-center">
           {features.map((feature, idx) => (
             <Col xs={12} sm={6} md={3} key={idx}>
-              <Card className="text-center p-4 h-100 border-0 shadow" style={{ borderRadius: "16px", background: "#2a1f3d", color: "#fff", transition: "0.3s" }}>
+              <Card
+                className="text-center p-4 h-100 border-0 shadow"
+                style={{ borderRadius: "16px", background: "#ffffff", color: "#013879", transition: "0.3s" }}
+              >
                 <div style={{ fontSize: "3rem", marginBottom: "15px" }}>{feature.icon}</div>
                 <h5 className="fw-bold">{feature.title}</h5>
-                <p className="text-light opacity-75">{feature.description}</p>
+                <p style={{ color: "#013879" }}>{feature.description}</p>
               </Card>
             </Col>
           ))}
@@ -82,15 +121,18 @@ const HRSharedServices = () => {
       </Container>
 
       {/* BENEFITS SECTION */}
-      <Container className="py-5" style={{ background: "#1b1429" }}>
+      <Container className="py-5" style={{ background: "linear-gradient(135deg, #013879 0%, #CCEBFD 100%)" }}>
         <h2 className="text-center fw-bold mb-5 text-white">Benefits</h2>
         <Row className="gy-4 justify-content-center">
           {benefits.map((benefit, idx) => (
             <Col xs={12} sm={6} md={4} key={idx}>
-              <Card className="text-center p-4 h-100 border-0 shadow" style={{ borderRadius: "16px", background: "#2a1f3d", color: "#fff", transition: "0.3s" }}>
+              <Card
+                className="text-center p-4 h-100 border-0 shadow"
+                style={{ borderRadius: "16px", background: "#ffffff", color: "#013879", transition: "0.3s" }}
+              >
                 <div style={{ fontSize: "3rem", marginBottom: "15px" }}>{benefit.icon}</div>
                 <h5 className="fw-bold">{benefit.title}</h5>
-                <p className="text-light opacity-75">{benefit.description}</p>
+                <p style={{ color: "#013879" }}>{benefit.description}</p>
               </Card>
             </Col>
           ))}

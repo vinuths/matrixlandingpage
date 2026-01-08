@@ -61,7 +61,8 @@ function Home() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "#0c0513", // dark background
+          backgroundColor: "#ffffffff", // dark background
+          // backgroundColor: "#0c0513", // dark background
         }}
       >
         <div
@@ -120,9 +121,24 @@ function Home() {
                 {currentHero.text}
               </p>
 
-              <Button variant="primary" as={Link} to="/contact" className="me-3">
-                Get Started
-              </Button>
+           <Button
+  as={Link}
+  to="/contact"
+  className="me-3"
+  variant="none"
+  style={{
+    backgroundColor: "#D27147",
+    border: "2px solid #D27147",
+    color: "#FFFFFF",
+    padding: "10px 24px",
+    borderRadius: "20px",
+    fontSize: "0.9rem",
+    fontWeight: "600",
+  }}
+>
+  Get Started
+</Button>
+
 
               {/* ✅ HERO CONTACT BUTTON */}
               {/* <Button variant="outline-light" as={Link} to="/contact">

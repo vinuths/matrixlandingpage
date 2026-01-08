@@ -48,31 +48,62 @@ const Audits = () => {
   const navigate = useNavigate();
 
   return (
-    <section style={{ background: "#1b1429", minHeight: "100vh" }}>
+    <section
+      style={{
+        background: "linear-gradient(135deg, #013879 0%, #CCEBFD 100%)",
+        minHeight: "100vh",
+      }}
+    >
       {/* HERO SECTION */}
-      <Container fluid className="py-5" style={{ background: "#2a1f3d", borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
+      <Container
+        fluid
+        className="py-5"
+        style={{
+          background: "linear-gradient(135deg, #013879 0%, #CCEBFD 100%)",
+          borderBottom: "1px solid rgba(255,255,255,0.1)",
+        }}
+      >
         <Container className="text-center py-5">
           <h1 className="fw-bold mb-3 text-white">Audit Services</h1>
-          <p className="mb-4 text-light opacity-75" style={{ maxWidth: "700px", margin: "0 auto" }}>
+          <p
+            className="mb-4 text-light opacity-75"
+            style={{ maxWidth: "700px", margin: "0 auto" }}
+          >
             Conduct internal and external audits efficiently with expert guidance.
           </p>
-          <Button
-            variant="primary"
-            className="me-3 px-4 py-2"
+          {/* ✅ ORANGE BUTTONS */}
+          <button
             onClick={() => navigate("/contact")}
+            style={{
+              backgroundColor: "#d27147",
+              border: "none",
+              color: "#fff",
+              padding: "10px 25px",
+              fontWeight: "600",
+              borderRadius: "8px",
+              cursor: "pointer",
+              marginRight: "12px",
+            }}
           >
             Book a Demo
-          </Button>
-          <Button
-            variant="outline-light"
-            className="px-4 py-2"
+          </button>
+          <button
             onClick={() => navigate("/")}
+            style={{
+              backgroundColor: "#d27147",
+              border: "none",
+              color: "#fff",
+              padding: "10px 25px",
+              fontWeight: "600",
+              borderRadius: "8px",
+              cursor: "pointer",
+            }}
           >
             Back to Home
-          </Button>
+          </button>
         </Container>
       </Container>
-
+    
       {/* TYPES OF AUDITS */}
       <Container className="py-5">
         <h2 className="text-center fw-bold mb-5 text-white">Types of Audits</h2>
@@ -80,12 +111,19 @@ const Audits = () => {
           {auditTypes.map((audit, idx) => (
             <Col xs={12} sm={6} md={3} key={idx}>
               <Card
-                className="text-center p-4 h-100 border-0 shadow"
-                style={{ borderRadius: "16px", background: "#2a1f3d", color: "#fff", transition: "0.3s" }}
+                className="text-center p-4 h-100 shadow"
+                style={{
+                  borderRadius: "16px",
+                  background: "#ffffff", // ✅ white cards
+                  color: "#013879", // ✅ blue text
+                  transition: "0.3s",
+                }}
               >
-                <div style={{ fontSize: "3rem", marginBottom: "15px" }}>{audit.icon}</div>
+                <div style={{ fontSize: "3rem", marginBottom: "15px" }}>
+                  {audit.icon}
+                </div>
                 <h5 className="fw-bold">{audit.title}</h5>
-                <p className="text-light opacity-75">{audit.description}</p>
+                <p>{audit.description}</p>
               </Card>
             </Col>
           ))}
@@ -93,18 +131,25 @@ const Audits = () => {
       </Container>
 
       {/* BENEFITS SECTION */}
-      <Container className="py-5" style={{ background: "#1b1429" }}>
+      <Container className="py-5" style={{ background: "linear-gradient(135deg, #013879 0%, #CCEBFD 100%)" }}>
         <h2 className="text-center fw-bold mb-5 text-white">Benefits</h2>
         <Row className="gy-4 justify-content-center">
           {benefits.map((benefit, idx) => (
             <Col xs={12} sm={6} md={4} key={idx}>
               <Card
-                className="text-center p-4 h-100 border-0 shadow"
-                style={{ borderRadius: "16px", background: "#2a1f3d", color: "#fff", transition: "0.3s" }}
+                className="text-center p-4 h-100 shadow"
+                style={{
+                  borderRadius: "16px",
+                  background: "#ffffff", // ✅ white cards
+                  color: "#013879", // ✅ blue text
+                  transition: "0.3s",
+                }}
               >
-                <div style={{ fontSize: "3rem", marginBottom: "15px" }}>{benefit.icon}</div>
+                <div style={{ fontSize: "3rem", marginBottom: "15px" }}>
+                  {benefit.icon}
+                </div>
                 <h5 className="fw-bold">{benefit.title}</h5>
-                <p className="text-light opacity-75">{benefit.description}</p>
+                <p>{benefit.description}</p>
               </Card>
             </Col>
           ))}

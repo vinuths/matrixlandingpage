@@ -62,8 +62,8 @@ function NavBar() {
     marginLeft: "12px",
     padding: "4px 12px",
     borderRadius: "16px",
-    background: "#a259ff",
-    color: "#ffffff",
+    background: "#d27147",
+    color: "#ffffffff",
     fontWeight: "600",
     fontSize: "0.85rem",
     transition: "0.3s",
@@ -78,15 +78,14 @@ function NavBar() {
       fixed="top"
       expand="md"
       collapseOnSelect
-      style={{
-        background: navColour
-          ? "rgba(27,20,41,0.95)"
-          : "rgba(27,20,41,0.7)",
-        backdropFilter: "blur(10px)",
-        transition: "0.4s ease",
-        boxShadow: navColour ? "0 4px 20px rgba(0,0,0,0.4)" : "none",
-        padding: "10px 0",
-      }}
+    style={{
+  background: "#013879",
+  backdropFilter: "blur(10px)",
+  transition: "0.4s ease",
+  boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
+  padding: "10px 0",
+}}
+
     >
       <Container>
         {/* ✅ LOGO ON LEFT */}

@@ -1,10 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import {
-  AiOutlineTwitter,
-  AiFillInstagram,
-} from "react-icons/ai";
+import { AiOutlineTwitter, AiFillInstagram } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 
 function Footer() {
@@ -14,6 +11,8 @@ function Footer() {
       className="footer"
       style={{
         padding: "30px 0 15px",
+        backgroundColor: "#013879", // ✅ exact Navbar color
+        opacity: 1, // ✅ full opacity
         position: "relative",
         zIndex: 10,
         pointerEvents: "auto",
@@ -21,33 +20,28 @@ function Footer() {
     >
       <Row className="text-center text-md-left align-items-start">
 
-        {/* LEFT */}
+        {/* LEFT COLUMN */}
         <Col xs={12} md={3} className="mb-3">
-          <h3 style={{ color: "#fff", marginBottom: "8px" }}>
+          <h3 style={{ color: "#ffffff", marginBottom: "8px" }}>
             Matrix HR Technologies
           </h3>
-
-          <p style={{ color: "#ccc", fontSize: "14px", marginBottom: "8px" }}>
+          <p style={{ color: "#d9d9d9", fontSize: "14px", marginBottom: "8px" }}>
             Complete compliance management solutions for your organization.
           </p>
-
-          <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "14px", marginBottom: 0 }}>
+          <p style={{ color: "#e6e6e6", fontSize: "14px", marginBottom: 0 }}>
             Email:{" "}
             <a
-              href="mailto:info@matrixhrtech.com"
-              style={{ color: "rgba(255,255,255,0.9)", textDecoration: "none" }}
+              href="mailto:binoy@matrixhrservices.com"
+              style={{ color: "#ffffff", textDecoration: "none" }}
             >
               binoy@matrixhrservices.com
             </a>
           </p>
         </Col>
 
-        {/* SERVICES */}
+        {/* SERVICES COLUMN */}
         <Col xs={12} md={6} className="mb-3">
-          <h4 style={{ color: "#fff", marginBottom: "15px" }}>
-            Our Services
-          </h4>
-
+          <h4 style={{ color: "#ffffff", marginBottom: "15px" }}>Our Services</h4>
           <Row>
             <Col xs={6}>
               <FooterLink to="/services/compliance-mgmt" label="Establishment Compliances" />
@@ -57,7 +51,6 @@ function Footer() {
               <FooterLink to="/services/audits" label="Audit Management" />
               <FooterLink to="/services/hr-shared-services" label="Register Management" />
             </Col>
-
             <Col xs={6}>
               <FooterLink to="/services/statutory-returns" label="Statutory Returns" />
               <FooterLink to="/services/social-security" label="Social Security" />
@@ -69,12 +62,9 @@ function Footer() {
           </Row>
         </Col>
 
-        {/* SOCIAL */}
+        {/* SOCIAL COLUMN */}
         <Col xs={12} md={3}>
-          <h4 style={{ color: "#fff", marginBottom: "15px" }}>
-            Connect
-          </h4>
-
+          <h4 style={{ color: "#ffffff", marginBottom: "15px" }}>Connect</h4>
           <div style={{ display: "flex", justifyContent: "center", gap: "15px" }}>
             <SocialIcon href="https://x.com/MatrixHRService">
               <AiOutlineTwitter size={25} />
@@ -89,10 +79,10 @@ function Footer() {
         </Col>
       </Row>
 
-      {/* COPYRIGHT BOTTOM */}
+      {/* COPYRIGHT */}
       <Row>
         <Col xs={12} className="text-center mt-3">
-          <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "13px" }}>
+          <p style={{ color: "#cccccc", fontSize: "13px", marginBottom: 0 }}>
             © Matrix Compliance. All rights reserved.
           </p>
         </Col>
@@ -107,13 +97,14 @@ const FooterLink = ({ to, label }) => (
     to={to}
     style={{
       display: "block",
-      color: "rgba(255,255,255,0.75)",
+      color: "#d9d9d9",
       textDecoration: "none",
       marginBottom: "8px",
       fontSize: "14px",
+      transition: "color 0.3s",
     }}
-    onMouseOver={(e) => (e.target.style.color = "#a259ff")}
-    onMouseOut={(e) => (e.target.style.color = "rgba(255,255,255,0.75)")}
+    onMouseOver={(e) => (e.target.style.color = "#ffffff")}
+    onMouseOut={(e) => (e.target.style.color = "#d9d9d9")}
   >
     {label}
   </Link>
@@ -124,7 +115,12 @@ const SocialIcon = ({ href, children }) => (
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    style={{ color: "#fff" }}
+    style={{
+      color: "#ffffff",
+      transition: "color 0.3s",
+    }}
+    onMouseOver={(e) => (e.target.style.color = "#d27147")} // optional hover effect
+    onMouseOut={(e) => (e.target.style.color = "#ffffff")}
   >
     {children}
   </a>

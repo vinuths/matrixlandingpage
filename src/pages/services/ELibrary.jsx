@@ -22,34 +22,53 @@ const ELibrary = () => {
   const navigate = useNavigate();
 
   return (
-    <section style={{ background: "#1b1429", minHeight: "100vh" }}>
+    <section
+      style={{
+        minHeight: "100vh",
+        background: "linear-gradient(135deg, #013879 0%, #CCEBFD 100%)",
+      }}
+    >
       {/* HERO SECTION */}
-      <Container
-        fluid
-        className="py-5"
-        style={{
-          background: "#2a1f3d",
-          borderBottom: "1px solid rgba(255,255,255,0.1)",
-        }}
-      >
+      <Container fluid className="py-5">
         <Container className="text-center py-5">
           <h1 className="fw-bold mb-3 text-white">E-Library</h1>
           <p
-            className="mb-4 text-light opacity-75"
-            style={{ maxWidth: "700px", margin: "0 auto" }}
+            className="mb-4"
+            style={{
+              maxWidth: "700px",
+              margin: "0 auto",
+              color: "#ffffff",
+              opacity: 0.85,
+            }}
           >
             Access all your HR compliance resources, templates, and training materials in one place.
           </p>
+
+          {/* REQUEST ACCESS */}
           <Button
-            variant="primary"
+            variant="none"
             className="me-3 px-4 py-2"
+            style={{
+              backgroundColor: "#d27147",
+              border: "1px solid #d27147",
+              color: "#ffffff",
+              fontWeight: "600",
+            }}
             onClick={() => navigate("/contact")}
           >
             Request Access
           </Button>
+
+          {/* BACK TO HOME – NOW ORANGE */}
           <Button
-            variant="outline-light"
+            variant="none"
             className="px-4 py-2"
+            style={{
+              backgroundColor: "#d27147",
+              border: "1px solid #d27147",
+              color: "#ffffff",
+              fontWeight: "600",
+            }}
             onClick={() => navigate("/")}
           >
             Back to Home
@@ -62,6 +81,7 @@ const ELibrary = () => {
         <h2 className="text-center fw-bold mb-5 text-white">
           Knowledge Hub
         </h2>
+
         <Row className="gy-4 justify-content-center">
           {libraryItems.map((item, idx) => (
             <Col xs={12} sm={6} md={4} key={idx}>
@@ -69,12 +89,12 @@ const ELibrary = () => {
                 className="text-center p-4 h-100 border-0 shadow"
                 style={{
                   borderRadius: "16px",
-                  background: "#2a1f3d",
-                  color: "#fff",
+                  background: "#ffffff",
+                  color: "#013879",
                   transition: "0.3s",
                   cursor: "pointer",
                 }}
-                onClick={() => navigate("/contact")} // ✅ navigate to contact
+                onClick={() => navigate("/contact")}
               >
                 <div style={{ fontSize: "3rem", marginBottom: "15px" }}>
                   {item.icon}
@@ -92,7 +112,7 @@ const ELibrary = () => {
           width: "100vw",
           height: "52px",
           overflow: "hidden",
-          background: "linear-gradient(90deg, #1b1429, #2a1f3d)", // ✅ MATCHED THEME
+          background: "linear-gradient(135deg, #013879 0%, #CCEBFD 100%)",
           display: "flex",
           alignItems: "center",
           position: "relative",
@@ -100,7 +120,7 @@ const ELibrary = () => {
           right: "50%",
           marginLeft: "-50vw",
           marginRight: "-50vw",
-          borderTop: "1px solid rgba(255,255,255,0.08)",
+          borderTop: "1px solid rgba(255,255,255,0.3)",
         }}
       >
         <p
@@ -109,7 +129,7 @@ const ELibrary = () => {
             paddingLeft: "100%",
             animation: "scrollText 35s linear infinite",
             fontSize: "12.5px",
-            color: "rgba(255,255,255,0.85)",
+            color: "#ffffff",
             letterSpacing: "0.4px",
             margin: 0,
           }}

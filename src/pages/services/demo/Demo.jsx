@@ -6,44 +6,61 @@ const Demo = () => {
   const navigate = useNavigate();
 
   return (
-    <section style={{ background: "#1b1429", minHeight: "100vh" }}>
-      
+    <section
+      style={{
+        background: "linear-gradient(135deg, #013879 0%, #CCEBFD 100%)",
+        minHeight: "100vh",
+      }}
+    >
       {/* HERO SECTION */}
       <Container
         fluid
         className="py-5"
         style={{
-          background: "#2a1f3d",
+          background: "linear-gradient(135deg, #013879 0%, #CCEBFD 100%)",
           borderBottom: "1px solid rgba(255,255,255,0.1)",
         }}
       >
         <Container className="text-center py-5">
-          <h1 className="fw-bold text-white mb-3">
-            Product Demo
-          </h1>
+          <h1 className="fw-bold mb-3 text-white">Product Demo</h1>
           <p
-            className="text-light opacity-75 mb-4"
+            className="mb-4 text-white opacity-75"
             style={{ maxWidth: "700px", margin: "0 auto" }}
           >
             Watch how our platform simplifies compliance, payroll, and governance
             through automation and accuracy.
           </p>
 
-          <Button
-            variant="primary"
-            className="me-3 px-4 py-2"
+          {/* ORANGE BUTTONS */}
+          <button
             onClick={() => navigate("/contact")}
+            style={{
+              backgroundColor: "#d27147",
+              border: "none",
+              color: "#fff",
+              padding: "10px 25px",
+              fontWeight: "600",
+              borderRadius: "8px",
+              cursor: "pointer",
+              marginRight: "12px",
+            }}
           >
             Request Full Demo
-          </Button>
-
-          <Button
-            variant="outline-light"
-            className="px-4 py-2"
+          </button>
+          <button
             onClick={() => navigate("/")}
+            style={{
+              backgroundColor: "#d27147",
+              border: "none",
+              color: "#fff",
+              padding: "10px 25px",
+              fontWeight: "600",
+              borderRadius: "8px",
+              cursor: "pointer",
+            }}
           >
             Back to Home
-          </Button>
+          </button>
         </Container>
       </Container>
 
@@ -56,7 +73,7 @@ const Demo = () => {
                 borderRadius: "16px",
                 overflow: "hidden",
                 boxShadow: "0 20px 50px rgba(0,0,0,0.4)",
-                background: "#000",
+                background: "#ffffff", // white card like Audits page
               }}
             >
               <video width="100%" controls>

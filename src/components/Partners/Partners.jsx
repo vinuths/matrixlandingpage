@@ -50,7 +50,7 @@ const Partners = () => {
   return (
     <section
       style={{
-        background: "rgba(27,20,41,0.95)",
+        background: "linear-gradient(135deg, #013879 0%, #CCEBFD 100%)",
         position: "relative",
         zIndex: 2,
         overflow: "hidden",
@@ -84,7 +84,7 @@ const Partners = () => {
               <div
                 key={index}
                 style={{
-                  width: "160px", // ✅ reduced container
+                  width: "160px",
                   padding: "12px",
                   display: "flex",
                   justifyContent: "center",
@@ -93,11 +93,11 @@ const Partners = () => {
               >
                 <div
                   style={{
-                    width: "120px",        // ✅ fixed logo box
+                    width: "120px",
                     height: "60px",
-                    background: "#ffffff",
+                    background: "#FFFFFF",
                     borderRadius: "10px",
-                    boxShadow: "0 6px 20px rgba(0,0,0,0.35)",
+                    boxShadow: "0 6px 20px #00000059",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
@@ -110,7 +110,7 @@ const Partners = () => {
                     style={{
                       width: "100%",
                       height: "100%",
-                      objectFit: "contain", // ✅ equal visual size
+                      objectFit: "contain",
                       padding: "8px",
                       transition: "all 0.3s ease",
                     }}

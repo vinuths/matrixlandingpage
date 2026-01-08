@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form } from "react-bootstrap";
 import Particle from "../Particle";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -11,15 +11,15 @@ function Contact() {
     message: "",
   });
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Thank you for contacting Matrix HR Technologies!");
     setForm({ name: "", email: "", phone: "", message: "" });
   };
+
+  const [hoverSend, setHoverSend] = useState(false);
 
   return (
     <>
@@ -52,30 +52,24 @@ function Contact() {
       </a>
 
       {/* ===== PAGE CONTENT ===== */}
-      <Container fluid className="contact-section" style={{ paddingBottom: "80px" }}>
+      <Container fluid style={{ paddingBottom: "80px" }}>
         <Container>
-          {/* ===== Heading ===== */}
-          <Row className="justify-content-center" style={{ paddingTop: "120px" }}>
-            <Col md={8} className="text-center">
-              <h1 className="purple">Contact Us</h1>
-              <p style={{ color: "#ccc", marginBottom: "40px" }}>
-                Let’s discuss how we can work together
-              </p>
-            </Col>
-          </Row>
+       {/* Heading */}
+<Row className="justify-content-center" style={{ paddingTop: "120px" }}>
+  <Col md={8} className="text-center">
+    <h1 style={{ color: "#fff", fontWeight: "700" }}>Contact Us</h1>
+    <p style={{ color: "#fff", marginBottom: "40px" }}>
+      Let’s discuss how we can work together
+    </p>
+  </Col>
+</Row>
 
-          {/* ===== Form & Map Side by Side ===== */}
+
+          {/* Form & Map Side by Side */}
           <Row className="justify-content-center">
             {/* Contact Form */}
             <Col md={6} style={{ marginBottom: "30px" }}>
-              {/* ✅ INNER CONTAINER ADDED */}
-              <Container
-                style={{
-                  background: "#ffffff",
-                  padding: "30px",
-                  borderRadius: "12px",
-                }}
-              >
+              <Container style={{ background: "#ffffff", padding: "30px", borderRadius: "12px" }}>
                 <Form onSubmit={handleSubmit}>
                   <Form.Group className="mb-3">
                     <Form.Control
@@ -121,18 +115,25 @@ function Contact() {
                     />
                   </Form.Group>
 
-                  <Button
-                    variant="primary"
+                  <button
                     type="submit"
+                    onMouseEnter={() => setHoverSend(true)}
+                    onMouseLeave={() => setHoverSend(false)}
                     style={{
-                      background: "#a259ff",
-                      border: "none",
                       width: "100%",
                       padding: "10px",
+                      borderRadius: "6px",
+                      fontWeight: "500",
+                      fontSize: "1rem",
+                      color: "#fff",
+                      backgroundColor: hoverSend ? "#b55b36" : "#d27147",
+                      border: "none",
+                      cursor: "pointer",
+                      transition: "0.3s",
                     }}
                   >
                     Send Message
-                  </Button>
+                  </button>
                 </Form>
               </Container>
             </Col>
@@ -155,12 +156,7 @@ function Contact() {
                   <iframe
                     title="Matrix HR Technologies Location"
                     src="https://www.google.com/maps?q=Matrix%20HR%20Technologies%20Bangalore&output=embed"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      border: 0,
-                      borderRadius: "12px",
-                    }}
+                    style={{ width: "100%", height: "100%", border: 0, borderRadius: "12px" }}
                     loading="lazy"
                   />
                 </div>
@@ -168,8 +164,8 @@ function Contact() {
                 <div style={{ color: "#000" }}>
                   <h5 style={{ fontWeight: "bold" }}>Address</h5>
                   <p>
-                    Matrix HR Technologies, 320, Matrix Square, 7th Main Rd,
-                    BTM 2nd Stage, BTM Layout, Bengaluru, Karnataka 560076
+                    Matrix HR Technologies, 320, Matrix Square, 7th Main Rd, BTM 2nd Stage, BTM Layout,
+                    Bengaluru, Karnataka 560076
                   </p>
                 </div>
               </div>
@@ -178,19 +174,13 @@ function Contact() {
         </Container>
       </Container>
 
-      {/* ===== PULSE ANIMATION ===== */}
+      {/* PULSE ANIMATION */}
       <style>
         {`
           @keyframes pulse {
-            0% {
-              box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
-            }
-            70% {
-              box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-            }
-            100% {
-              box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
           }
         `}
       </style>

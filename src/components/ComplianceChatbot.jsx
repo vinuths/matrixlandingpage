@@ -3,57 +3,42 @@ import { Button } from "react-bootstrap";
 
 const predefinedReplies = {
   hi: "Hello 👋 Welcome to Matrix HR Technologies. I’m here to help you with compliance, payroll, audits, and statutory requirements.",
-
-  help:
-    "If you’re not sure what to ask, no worries 🙂 I can explain compliance, payroll, audits, or guide you to our experts.",
-
-  compliance:
-    "Compliance ensures your organization follows labour laws, avoids penalties, and stays audit-ready. Many companies face issues due to missed filings or incorrect registers.",
-
-  payroll:
-    "Our payroll services ensure accurate salary processing, statutory deductions, PF, ESI, and timely filings — all in compliance with regulations.",
-
-  audit:
-    "We help organizations prepare for audits by maintaining proper registers, records, and statutory documentation.",
-
-  services:
-    "Our services include Establishment Compliance, Payroll Administration, Factory Compliance, Audit Management, and Statutory Filings.",
-
-  unsure:
-    "If you’re unsure about your compliance status, it’s best to speak with our experts. They can quickly assess your requirements.",
-
-  contact:
-    "📞 The best next step is to contact our compliance experts. Please visit the Contact page and our team will assist you personally.",
-
-  default:
-    "Not sure what to ask? 😊 You can type: compliance, payroll, audit, services, or contact. Our experts are always ready to help.",
+  help: "If you’re not sure what to ask, no worries 🙂 I can explain compliance, payroll, audits, or guide you to our experts.",
+  compliance: "Compliance ensures your organization follows labour laws, avoids penalties, and stays audit-ready.",
+  payroll: "Our payroll services ensure accurate salary processing, PF, ESI, and timely filings.",
+  audit: "We help organizations prepare for audits with proper registers and documentation.",
+  services: "Our services include Establishment Compliance, Payroll, Factory Compliance, Audit Management.",
+  contact: "📞 Please visit the Contact page and our experts will assist you.",
+  default: "Not sure what to ask? 😊 Try: compliance, payroll, audit, services, or contact.",
 };
 
 function ComplianceChatbot() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
-{
-  from: "bot",
-  text: "Hi 👋 I’m your Compliance Assistant. If you’re not sure what to ask, just type ‘help’ or ‘compliance’ 😊",
-},
+    {
+      from: "bot",
+      text: "Hi 👋 I’m your Compliance Assistant. Type ‘help’ or ‘compliance’ 😊",
+    },
   ]);
   const [input, setInput] = useState("");
 
   const handleSend = () => {
     if (!input.trim()) return;
 
-    const userMessage = { from: "user", text: input };
     const key = input.toLowerCase();
-    const reply =
-      predefinedReplies[key] || predefinedReplies.default;
+    const reply = predefinedReplies[key] || predefinedReplies.default;
 
-    setMessages([...messages, userMessage, { from: "bot", text: reply }]);
+    setMessages([
+      ...messages,
+      { from: "user", text: input },
+      { from: "bot", text: reply },
+    ]);
     setInput("");
   };
 
   return (
     <>
-      {/* Chat Button */}
+      {/* CHAT BUTTON */}
       <div
         style={{
           position: "fixed",
@@ -63,19 +48,23 @@ function ComplianceChatbot() {
         }}
       >
         <Button
+          variant="none"
           onClick={() => setOpen(!open)}
           style={{
             borderRadius: "50%",
             width: "60px",
             height: "60px",
             fontSize: "22px",
+            backgroundColor: "#D27147",
+            color: "#FFFFFF",
+            boxShadow: "0 6px 18px #00000066",
           }}
         >
           💬
         </Button>
       </div>
 
-      {/* Chat Window */}
+      {/* CHAT WINDOW */}
       {open && (
         <div
           style={{
@@ -83,24 +72,26 @@ function ComplianceChatbot() {
             bottom: "100px",
             right: "25px",
             width: "320px",
-            background: "#0c0513",
+            background: "#01387",
             borderRadius: "14px",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
+            boxShadow: "0 10px 30px #00000066",
             zIndex: 9999,
             overflow: "hidden",
           }}
         >
+          {/* HEADER */}
           <div
             style={{
               padding: "12px",
-              background: "#1b1429",
-              color: "#fff",
-              fontWeight: "bold",
+              background: "#013879",
+              color: "#FFFFFF",
+              fontWeight: "600",
             }}
           >
             Compliance Chatbot
           </div>
 
+          {/* MESSAGES */}
           <div
             style={{
               padding: "12px",
@@ -121,9 +112,9 @@ function ComplianceChatbot() {
                     display: "inline-block",
                     padding: "8px 12px",
                     borderRadius: "12px",
-                    background:
-                      msg.from === "user" ? "#0d6efd" : "#2a2240",
-                    color: "#fff",
+                    backgroundColor:
+                      msg.from === "user" ? "#D27147" : "#01387",
+                    color: "#FFFFFF",
                     fontSize: "0.85rem",
                   }}
                 >
@@ -133,6 +124,7 @@ function ComplianceChatbot() {
             ))}
           </div>
 
+          {/* INPUT */}
           <div style={{ padding: "10px", display: "flex", gap: "6px" }}>
             <input
               value={input}
@@ -145,7 +137,16 @@ function ComplianceChatbot() {
                 border: "none",
               }}
             />
-            <Button size="sm" onClick={handleSend}>
+            <Button
+              variant="none"
+              size="sm"
+              onClick={handleSend}
+              style={{
+                backgroundColor: "#D27147",
+                color: "#FFFFFF",
+                fontWeight: "600",
+              }}
+            >
               Send
             </Button>
           </div>

@@ -109,6 +109,7 @@ function Home() {
                   fontSize: "1.9rem",   // reduced
                   lineHeight: "1.3",
                   maxWidth: "650px",
+                  fontFamily: "Montserrat, sans-serif",
                 }}
               >
                 {currentHero.title}
@@ -117,6 +118,7 @@ function Home() {
               <p
                 className="text-light opacity-75"
                 style={{ fontSize: "0.95rem" }}   // reduced
+                
               >
                 {currentHero.text}
               </p>
@@ -156,7 +158,17 @@ function Home() {
 
 
       {/* ========== SERVICES (REDESIGNED) ========== */}
-      <Container className="py-5" style={{ position: "relative", zIndex: 2 }}>
+<Container
+  className="py-5"
+  style={{
+    position: "relative",
+    zIndex: 2,
+    backgroundColor: "#8fbdfaff",
+    borderRadius: "20px",
+    padding: "40px 30px",
+    marginBottom: "60px",   // 👈 THIS FIXES THE GAP
+  }}
+>
         <h4
           className="text-center fw-bold mb-5 text-white"
           style={{ fontSize: "1.6rem" }}   // reduced
@@ -188,7 +200,7 @@ function Home() {
 
           <Col md={6} className="text-center">
             <img
-              src={serviceimage1}
+              src={serviceimage1} 
               alt="services"
               className="img-fluid"
               style={{ maxHeight: "260px" }}

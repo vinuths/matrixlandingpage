@@ -54,7 +54,7 @@ const HomeAchievements = () => {
       fluid
       className="py-5"
       style={{
-        background: "linear-gradient(135deg, #013879 0%, #CCEBFD 100%)",
+backgroundColor: "#e2622a",
         color: "#ffffff",
         position: "relative",
         zIndex: 2,

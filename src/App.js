@@ -26,7 +26,7 @@ import MultiStateCompliance from "./pages/services/MultiStateCompliance";
 import ComplianceTracking from "./pages/services/ComplianceTracking";
 import RiskManagement from "./pages/services/RiskManagement";
 import Demo from "./pages/services/demo/Demo";
-import ELibrary from "./pages/services/ELibrary";
+import ELibrary from "./pages/services/NewELibrary/View/ELibrary";
 import {
   BrowserRouter as Router,
   Route,

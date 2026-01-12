@@ -81,19 +81,18 @@ const ELibrary = () => {
         <h2 className="text-center fw-bold mb-5 text-white">
           Knowledge Hub
         </h2>
-
         <Row className="gy-4 justify-content-center">
           {libraryItems.map((item, idx) => (
             <Col xs={12} sm={6} md={4} key={idx}>
               <Card
                 className="text-center p-4 h-100 border-0 shadow"
                 style={{
-                  borderRadius: "16px",
+                   borderRadius: "16px",
                   background: "#ffffff",
                   color: "#013879",
                   transition: "0.3s",
                   cursor: "pointer",
-                }}
+                }}cursor children
                 onClick={() => navigate("/contact")}
               >
                 <div style={{ fontSize: "3rem", marginBottom: "15px" }}>
@@ -128,7 +127,7 @@ const ELibrary = () => {
             whiteSpace: "nowrap",
             paddingLeft: "100%",
             animation: "scrollText 35s linear infinite",
-            fontSize: "12.5px",
+            fontSize: "9.5px",
             color: "#ffffff",
             letterSpacing: "0.4px",
             margin: 0,

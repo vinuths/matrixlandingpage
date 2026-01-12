@@ -50,7 +50,7 @@ const Partners = () => {
   return (
     <section
       style={{
-        background: "linear-gradient(135deg, #013879 0%, #CCEBFD 100%)",
+backgroundColor: "#ffffffff",
         position: "relative",
         zIndex: 2,
         overflow: "hidden",
@@ -67,9 +67,10 @@ const Partners = () => {
       </style>
 
       <Container className="py-5">
-        <h4 className="text-center fw-bold mb-4 text-white">
-          Our Trusted Partners
-        </h4>
+      <h4 className="text-center fw-bold mb-4 text-dark">
+  Our Trusted Partners
+</h4>
+
 
         <div style={{ overflow: "hidden", width: "100%" }}>
           <div

@@ -1,5 +1,5 @@
 <h2 align="center">
-  Portfolio Website<br/>
+   landing page<br/>
   <a href="https://your-live-site-link.com" target="_blank">
     matrix landingpage
   </a>
@@ -10,22 +10,14 @@
 <br/>
 
 <p align="center">
-  A modern, responsive personal portfolio website built using React.
+  A modern, responsive   website built using React.
 </p>
 
 ---
 
 ## 🚀 About The Project
 
-This is a personal portfolio website designed to showcase:
 
-- Professional profile
-- Skills & technologies
-- Projects
-- Resume
-- Contact information
-
-The website is fully responsive and optimized for modern browsers.
 
 ---
 

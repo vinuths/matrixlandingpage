@@ -54,7 +54,7 @@ backgroundColor: "#ffffffff",
         position: "relative",
         zIndex: 2,
         overflow: "hidden",
-      }}
+      }}iam saying 
     >
       {/* Built-in animation */}
       <style>
@@ -66,9 +66,9 @@ backgroundColor: "#ffffffff",
         `}
       </style>
 
-      <Container className="py-5">
+<Container fluid className="py-5 px-0">
       <h4 className="text-center fw-bold mb-4 text-dark">
-  Our Trusted Partners
+  Our Trusted Clients
 </h4>
 
 

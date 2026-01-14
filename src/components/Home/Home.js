@@ -361,9 +361,10 @@ function Home() {
           height: "100vh",
           overflowY: "scroll",
           scrollSnapType: "y mandatory",
-          background: "#1D4ED8",
+          background: "#013789",
         }}
       >
+       
         {Array.from({ length: totalPages }).map((_, pageIndex) => (
           <div
             key={pageIndex}
@@ -455,16 +456,18 @@ function Home() {
 
       {/* ========== LAST 4 SERVICES GRID ========== */}
       <section
-        id="last-services"
-        style={{
-          padding: "80px 50px",
-          backgroundColor: "#F3F4F6",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "50px",
-        }}
-      >
+  id="last-services"
+  style={{
+    padding: "80px 0",      // ✅ remove left/right padding
+    backgroundColor: "#F3F4F6",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: "50px",
+    width: "100%",
+  }}
+>
+
         <h2
           style={{
             fontSize: "3rem",
@@ -473,7 +476,7 @@ function Home() {
             marginBottom: "40px",
           }}
         >
-          Explore More Services
+          Additional Featuers
         </h2>
 
         <div
@@ -492,10 +495,10 @@ function Home() {
   className="service-card"
   style={{
     flex: "1 1 200px",         // reduced from 250px
-    maxWidth: "240px",         // reduced from 280px
+    maxWidth: "340px",         // reduced from 280px
     background: "#fff",
     borderRadius: "20px",      // slightly smaller
-    padding: "20px",           // reduced from 30px
+    padding: "10px",           // reduced from 30px
     boxShadow: "0 15px 30px rgba(0,0,0,0.12)", // slightly smaller shadow
     display: "flex",
     flexDirection: "column",

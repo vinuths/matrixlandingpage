@@ -1,7 +1,7 @@
 <h2 align="center">
   Portfolio Website<br/>
   <a href="https://your-live-site-link.com" target="_blank">
-    Namratha's Portfolio
+    matrix landingpage
   </a>
 </h2>
 

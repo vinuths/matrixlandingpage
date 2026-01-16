@@ -45,7 +45,7 @@ const Demo = () => {
               marginRight: "12px",
             }}
           >
-            Request Full Demo
+            Book Demo
           </button>
           <button
             onClick={() => navigate("/")}

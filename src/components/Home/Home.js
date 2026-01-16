@@ -11,12 +11,43 @@ import serviceimage2 from "../../Assets/19728.jpg"; // Adjust relative path from
 import serviceimage3 from "../../Assets/19197135.jpg"; // Adjust relative path from the component file
 import ComplianceChatbot from "../ComplianceChatbot";
 import Carousel from "react-bootstrap/Carousel";
+// import Cloud from "../../Assets/favicon.png"; 
 
 const heroTexts = [
-  { title: "Compliance Made Easy.", text: "Real-Time Insights." },
-  { title: "Compliance You Can Trust.", text: "Centralized Dashboard." },
-  { title: "Manage Audits Seamlessly.", text: "Track & Report in Real-Time." },
+  {
+    title: "Compliance Made Easy.",
+    text: "Real-Time Insights",
+    desc:
+      "Manage audits, track compliance, and generate real-time reports with a powerful centralized compliance platform",
+  },
+ 
+    // ✅ NEW SLIDE 4
+  {
+    title: "Automate Statutory Compliance",
+    text: "Never Miss a Deadline",
+    desc:
+      "Automated alerts, reminders, and filings ensure your organization stays compliant across all states and acts",
+  },
+   
+  // ✅ NEW SLIDE 5
+  {
+    title: "One Platform,Total Control",
+    text: "Multi-State Compliance",
+    desc:
+      "Manage complex multi-state and multi-location compliance requirements with centralized governance and reporting",
+  },
+
+  // ✅ NEW SLIDE 6
+ {
+  title: "Built for Indian Labour Law Compliance",
+  text: "Acts. Rules. Registers.",
+  desc:
+    "Manage PF, ESI, CLRA, Factory Act, payroll, and multi-state compliances through a single statutory governance platform.",
+},
+
 ];
+
+
 
 const scrollServices = [
   {
@@ -101,49 +132,58 @@ function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    let isScrolling = false;
+useEffect(() => {
+  const services = document.getElementById("asana-services");
+  const hero = document.getElementById("hero-section");
+  const nextSection = document.getElementById("last-services");
 
-    const handleWheel = (e) => {
-      const section = document.getElementById("asana-services");
-      if (!section) return;
+  if (!services || !hero || !nextSection) return;
 
-      const rect = section.getBoundingClientRect();
-      const inView = rect.top <= 0 && rect.bottom >= window.innerHeight;
+  let isScrolling = false;
+  const tolerance = 5; // px tolerance for scrollTop
 
-      if (!inView || isScrolling) return;
+  const onWheel = (e) => {
+    if (isScrolling) return;
+    isScrolling = true;
 
-      e.preventDefault();
-      isScrolling = true;
+    const scrollTop = services.scrollTop;
+    const clientHeight = services.clientHeight;
+    const scrollHeight = services.scrollHeight;
 
-      if (e.deltaY > 0 && servicePage < totalPages - 1) {
-        setServicePage((p) => p + 1);
-      } else if (e.deltaY < 0 && servicePage > 0) {
-        setServicePage((p) => p - 1);
-      }
+    const pageHeight = clientHeight; // each internal “page” = 1 viewport
+    const currentPage = Math.floor(scrollTop / pageHeight); 
+    const totalPages = Math.ceil(scrollHeight / pageHeight) - 1;
 
-      setTimeout(() => {
+    // ⬇️ DOWN → Additional Features
+    if (e.deltaY > 0 && scrollTop + clientHeight >= scrollHeight - tolerance) {
+      window.requestAnimationFrame(() => {
+        nextSection.scrollIntoView({ behavior: "smooth" });
         isScrolling = false;
-      }, 700); // matches animation duration
-    };
+      });
+      return;
+    }
 
-    window.addEventListener("wheel", handleWheel, { passive: false });
-    return () => window.removeEventListener("wheel", handleWheel);
-  }, [servicePage, totalPages]);
+    // ⬆️ UP → Hero section
+    if (e.deltaY < 0 && scrollTop <= tolerance) {
+      window.requestAnimationFrame(() => {
+        hero.scrollIntoView({ behavior: "smooth" });
+        isScrolling = false;
+      });
+      return;
+    }
 
-  // Rotate hero text every 4 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % heroTexts.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
+    // reset scrolling flag if not at edge
+    setTimeout(() => (isScrolling = false), 50);
+  };
+
+  services.addEventListener("wheel", onWheel, { passive: true });
+  return () => services.removeEventListener("wheel", onWheel);
+}, []);
 
   useEffect(() => {
     document.body.style.overflowX = "hidden";
     document.documentElement.style.overflowX = "hidden";
   }, []);
-
   // Loader timeout
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2000);
@@ -163,7 +203,7 @@ function Home() {
           alignItems: "center",
           backgroundColor: "#ffffffff",
         }}
-      >
+      > 
         <div
           id="preloader"
           style={{
@@ -195,6 +235,7 @@ function Home() {
 
       {/* ========== HERO ========== */}
       <Container
+       id="hero-section"  
         fluid
         className="home-section"
         style={{
@@ -210,66 +251,150 @@ function Home() {
       >
         <Container>
           <Row className="align-items-center">
-            <Col md={7}>
-              <h1
-                className="hero-title"
-                style={{
-                  fontSize: "4rem", // increased
-                  lineHeight: "1.1",
-                }}
-              >
-                {currentHero.title}
-              </h1>
+<Col md={7}>
+  {/* MATRIX HR – BRAND LINE (BIGGEST) */}
+  <h1
+    style={{
+      fontSize: "3.2rem",
+      fontWeight: 900,
+      letterSpacing: "3px",
+      color: "#2F6DB5",
+      marginBottom: "18px",
+      textTransform: "uppercase",
+    }}
+  >
+    Matrix HR Technologies
+  </h1>
+{/* ===== BRAND LOGO HERO TEXT (EXACT LOGO STYLE) =====
+<div
+  style={{
+    position: "relative",
+    display: "inline-block",
+    marginBottom: "32px",
+  }}
+>
+  CLOUD – positioned above end of MATRIX
+  <img
+    src={Cloud}
+    alt="Cloud"
+    style={{
+      width: "58px",
+      position: "absolute",
+      top: "-42px",
+      left: "138px",   // 👈 IMPORTANT: aligns above Matrix end
+      pointerEvents: "none",
+    }}
+  />
 
-              <h2
-                className="hero-subtitle"
-                style={{
-                  fontSize: "2.4rem", // increased
-                  color: "#2F6DB5",
-                  marginBottom: "25px",
-                }}
-              >
-                {currentHero.text}
-              </h2>
+  Matrix HR
+  <div
+    style={{
+      display: "flex",
+      alignItems: "baseline",
+    }}
+  >
+    <span
+      style={{
+        fontSize: "3.2rem",
+        fontWeight: 900,
+        color: "#366CB5",
+        lineHeight: "1",
+        marginRight: "8px",
+      }}
+    >
+      Matrix
+    </span>
 
-              <p
-                className="hero-desc"
-                style={{
-                  fontSize: "1.25rem",
-                  maxWidth: "700px",
-                  opacity: 0.9,
-                  color: "#4b5563",
-                }}
-              >
-                Manage audits, track compliance, and generate real-time reports
-                with a powerful centralized compliance platform.
-              </p>
+    <span
+      style={{
+        fontSize: "3.2rem",
+        fontWeight: 900,
+        color: "#CD6032",
+        lineHeight: "1",
+      }}
+    >
+      HR
+    </span>
+  </div>
 
-              <div className="mt-4 d-flex gap-3 flex-wrap">
-                <Button
-                  as={Link}
-                  to="/contact"
-                  className="hero-btn-primary"
-                  variant="none"
-                >
-                  Get Started Free
-                </Button>
+  Technologies
+  <div
+    style={{
+      fontSize: "1.05rem",
+      letterSpacing: "6px",
+      fontWeight: 700,
+      color: "#7FAED6",
+      marginTop: "6px",
+      marginLeft: "4px",
+    }}
+  >
+    TECHNOLOGIES
+  </div>
+</div> */}
 
-                <Button
-                  as={Link}
-                  to="/demo" // MUST match the Route path exactly
-                  className="hero-btn-outline"
-                  variant="none"
-                >
-                  Watch Demo
-                </Button>
-              </div>
 
-              {/* ✅ HERO CONTACT BUTTON */}
-              {/* <Button variant="outline-light" as={Link} to="/contact">
-                Contact Us
-              </Button> */}
-            </Col>
+  {/* TITLE */}
+  <h2 
+    className="hero-title"
+    style={{
+      fontSize: "2.3rem",
+      lineHeight: "1.2",
+      fontWeight: 800,
+      marginBottom: "12px",
+    }}
+  >
+    {currentHero.title}
+  </h2>
+
+  {/* TEXT */}
+  <h3
+    className="hero-subtitle"
+    style={{
+      fontSize: "1.4rem",
+      color: "#2F6DB5",
+      marginBottom: "18px",
+      fontWeight: 600,
+    }}
+  >
+{currentHero.text}
+  </h3>
+
+  {/* DESCRIPTION */}
+  <p
+    className="hero-desc"
+    style={{
+      fontSize: "1rem",
+      maxWidth: "700px",
+      color: "#4b5563",
+      lineHeight: "1.7",
+    }}
+  >
+    {currentHero.desc}
+  </p>
+
+  <div className="mt-4 d-flex gap-3 flex-wrap">
+    <Button
+      as={Link}
+      to="/contact"
+      className="hero-btn-primary"
+      variant="none"
+      style={{ fontSize: "0.9rem" }}
+    >
+      Get Started Free
+    </Button>
+ 
+    <Button    
+      as={Link}
+      to="/demo"
+      className="hero-btn-outline"
+      variant="none"
+      style={{ fontSize: "0.9rem" }}
+    >
+      Watch Demo
+    </Button>
+  </div>
+</Col>
+
 
             <Col md={5} className="text-center">
               <img
@@ -288,7 +413,7 @@ function Home() {
             </Col>
           </Row>
         </Container>
-
+        
         <div
           style={{
             position: "absolute",
@@ -355,16 +480,40 @@ function Home() {
       </Container>
 
       {/* ========== SERVICES (FULL-PAGE SCROLL STYLE) ========== */}
-      <section
-        id="asana-services"
-        style={{
-          height: "100vh",
-          overflowY: "scroll",
-          scrollSnapType: "y mandatory",
-          background: "#013789",
-        }}
-      >
-       
+<section
+  id="asana-services"
+  style={{
+    height: "100vh",
+    overflowY: "auto",
+    scrollSnapType: "y mandatory",
+    background: "#013789",
+  }}
+>
+
+  {/* SECTION HEADING */}
+  <div
+    style={{
+      position: "sticky",
+      top: 0,
+      zIndex: 10,
+      background: "#013789",
+      padding: "40px 0 20px",
+      textAlign: "center",
+    }}
+  >
+    <h2
+      style={{
+        color: "#ffffff",
+        fontSize: "2.8rem",
+        fontWeight: 700,
+        marginBottom: "10px",
+      }}
+    >
+      Our Services
+    </h2>
+ 
+  </div>
+               
         {Array.from({ length: totalPages }).map((_, pageIndex) => (
           <div
             key={pageIndex}
@@ -375,7 +524,7 @@ function Home() {
               alignItems: "center",
               gap: "30px",
               scrollSnapAlign: "start",
-              padding: "0 50px",
+     
             }}
           >
             {scrollableServices
@@ -476,7 +625,7 @@ function Home() {
             marginBottom: "40px",
           }}
         >
-          Additional Featuers
+          Additional Features
         </h2>
 
         <div

@@ -291,6 +291,8 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
+
+
             <Nav.Item>
               <Nav.Link
                 as={Link}
@@ -313,10 +315,10 @@ function NavBar() {
                 onMouseEnter={() => setHoveredPath("/contact")}
                 onMouseLeave={() => setHoveredPath(null)}
                 onClick={() => updateExpanded(false)}
-              >
+              > 
                 <AiOutlineMail /> Contact Us
               </Nav.Link>
-            </Nav.Item>
+           </Nav.Item>
 
             {/* ✅ LOGIN BUTTON */}
             <Nav.Item>
@@ -328,9 +330,20 @@ function NavBar() {
                 onMouseLeave={() => setHoveredPath(null)}
                 onClick={() => updateExpanded(false)}
               >
-                <AiOutlineLogin /> Login
+                <AiOutlineLogin />Member Login
               </Nav.Link>
             </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/contact"
+                style={loginButtonStyle}
+              >
+              <AiOutlineLogin />  Register
+              </Nav.Link>
+            </Nav.Item>
+
           </Nav>
         </Navbar.Collapse>
       </Container>

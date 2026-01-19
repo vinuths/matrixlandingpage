@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Particle from "../Particle";
 import homeLogo from "../../Assets/dashboard1.png";
@@ -11,42 +11,90 @@ import serviceimage2 from "../../Assets/19728.jpg"; // Adjust relative path from
 import serviceimage3 from "../../Assets/19197135.jpg"; // Adjust relative path from the component file
 import ComplianceChatbot from "../ComplianceChatbot";
 import Carousel from "react-bootstrap/Carousel";
-// import Cloud from "../../Assets/favicon.png"; 
+import Cloud from "../../Assets/favicon.png"; 
 
 const heroTexts = [
   {
     title: "Compliance Made Easy.",
     text: "Real-Time Insights",
     desc:
-      "Manage audits, track compliance, and generate real-time reports with a powerful centralized compliance platform",
+      "Manage audits, track compliance, and generate real-time reports with a powerful centralized compliance platform.",
   },
- 
-    // ✅ NEW SLIDE 4
+  {
+  title: "Compliance You Can Trust.",
+  text: "Centralized Dashboard.",
+  desc:
+    "Get a single source of truth for all compliance activities with a centralized dashboard offering real-time visibility and control.",
+},
+
   {
     title: "Automate Statutory Compliance",
     text: "Never Miss a Deadline",
     desc:
-      "Automated alerts, reminders, and filings ensure your organization stays compliant across all states and acts",
+      "Automated alerts, reminders, and filings ensure your organization stays compliant across all states and acts.",
   },
-   
-  // ✅ NEW SLIDE 5
   {
-    title: "One Platform,Total Control",
+    title: "One Platform, Total Control",
     text: "Multi-State Compliance",
     desc:
-      "Manage complex multi-state and multi-location compliance requirements with centralized governance and reporting",
+      "Manage complex multi-state and multi-location compliance requirements with centralized governance and reporting.",
   },
-
+  {
+    title: "Built for Indian Labour Law Compliance",
+    text: "Acts. Rules. Registers.",
+    desc:
+      "Manage PF, ESI, CLRA, Factory Act, payroll, and multi-state compliances through a single statutory governance platform.",
+  },
+  // ✅ NEW SLIDE 5
+  {
+    title: "Audit & Risk Management",
+    text: "Identify Risks Early",
+    desc:
+      "Stay ahead with comprehensive audit tracking, risk heatmaps, and executive dashboards to mitigate compliance risks.",
+  },
   // ✅ NEW SLIDE 6
- {
-  title: "Built for Indian Labour Law Compliance",
-  text: "Acts. Rules. Registers.",
-  desc:
-    "Manage PF, ESI, CLRA, Factory Act, payroll, and multi-state compliances through a single statutory governance platform.",
-},
-
+  {
+    title: "Digital Statutory Registers",
+    text: "Easy Record-Keeping",
+    desc:
+      "Maintain all statutory registers digitally with automatic updates, notifications, and compliance tracking.",
+  },
+  // ✅ NEW SLIDE 7
+  {
+    title: "Vendor & Contractor Compliance",
+    text: "Streamline Vendor Audits",
+    desc:
+      "Ensure all contractors and vendors adhere to your compliance standards with automated checks and reports.",
+  },
+  // ✅ NEW SLIDE 8
+  {
+    title: "Statutory Returns Simplified",
+    text: "Filing Made Easy",
+    desc:
+      "Never miss deadlines with automated tracking of statutory returns and filing schedules across states.",
+  },
+  // ✅ NEW SLIDE 9
+  {
+    title: "Employee Compliance Tracking",
+    text: "Keep Teams Aligned",
+    desc:
+      "Track employee statutory compliances, leave records, and payroll-related obligations seamlessly.",
+  },
+  // ✅ NEW SLIDE 10
+  {
+    title: "Trustworthy Compliance Insights",
+    text: "Data-Driven Decisions",
+    desc:
+      "Leverage real-time dashboards and reports to make informed decisions and ensure 100% compliance.",
+  },
+  // ✅ NEW SLIDE 11
+  {
+    title: "Risk-Free Operations",
+    text: "Minimize Compliance Risks",
+    desc:
+      "Identify gaps, monitor audits, and implement corrective measures before issues escalate.",
+  },
 ];
-
 
 
 const scrollServices = [
@@ -125,60 +173,27 @@ const scrollServices = [
 ];
 
 function Home() {
+
+  // Refs for full-page sections
+
+
   const [servicePage, setServicePage] = useState(0);
   const scrollableServices = scrollServices.slice(0, 8); // Only first 8 for scrolling
   const totalPages = Math.ceil(scrollableServices.length / 2);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
+const isScrollingRef = useRef(false);
+const snapTimeoutRef = useRef(null);
 
-useEffect(() => {
-  const services = document.getElementById("asana-services");
-  const hero = document.getElementById("hero-section");
-  const nextSection = document.getElementById("last-services");
+  // AUTO-HERO SLIDE ROTATION
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % heroTexts.length);
+    }, 5000); // change slide every 5 seconds
+    return () => clearInterval(interval);
+  }, []);
 
-  if (!services || !hero || !nextSection) return;
-
-  let isScrolling = false;
-  const tolerance = 5; // px tolerance for scrollTop
-
-  const onWheel = (e) => {
-    if (isScrolling) return;
-    isScrolling = true;
-
-    const scrollTop = services.scrollTop;
-    const clientHeight = services.clientHeight;
-    const scrollHeight = services.scrollHeight;
-
-    const pageHeight = clientHeight; // each internal “page” = 1 viewport
-    const currentPage = Math.floor(scrollTop / pageHeight); 
-    const totalPages = Math.ceil(scrollHeight / pageHeight) - 1;
-
-    // ⬇️ DOWN → Additional Features
-    if (e.deltaY > 0 && scrollTop + clientHeight >= scrollHeight - tolerance) {
-      window.requestAnimationFrame(() => {
-        nextSection.scrollIntoView({ behavior: "smooth" });
-        isScrolling = false;
-      });
-      return;
-    }
-
-    // ⬆️ UP → Hero section
-    if (e.deltaY < 0 && scrollTop <= tolerance) {
-      window.requestAnimationFrame(() => {
-        hero.scrollIntoView({ behavior: "smooth" });
-        isScrolling = false;
-      });
-      return;
-    }
-
-    // reset scrolling flag if not at edge
-    setTimeout(() => (isScrolling = false), 50);
-  };
-
-  services.addEventListener("wheel", onWheel, { passive: true });
-  return () => services.removeEventListener("wheel", onWheel);
-}, []);
 
   useEffect(() => {
     document.body.style.overflowX = "hidden";
@@ -229,13 +244,20 @@ useEffect(() => {
   }
 
   return (
-    <section style={{ position: "relative" }}>
+<section
+  style={{
+    position: "relative",
+    height: "100vh",
+    overflowY: "auto",
+    scrollSnapType: "y mandatory",
+  }}
+>
       {/* <Particle /> */}
       {/* Particle background removed to match HTML white design */}
 
       {/* ========== HERO ========== */}
       <Container
-       id="hero-section"  
+       id="hero-section" 
         fluid
         className="home-section"
         style={{
@@ -247,13 +269,16 @@ useEffect(() => {
           zIndex: 2,
           backgroundColor: "#ffffff", // White background
           color: "#1f2937", // Dark text
+          scrollSnapAlign: "start",
+scrollSnapStop: "always",
+
         }}
       >
         <Container>
           <Row className="align-items-center">
 <Col md={7}>
   {/* MATRIX HR – BRAND LINE (BIGGEST) */}
-  <h1
+  {/* <h1
     style={{
       fontSize: "3.2rem",
       fontWeight: 900,
@@ -264,8 +289,8 @@ useEffect(() => {
     }}
   >
     Matrix HR Technologies
-  </h1>
-{/* ===== BRAND LOGO HERO TEXT (EXACT LOGO STYLE) =====
+  </h1> */}
+{/* ===== BRAND LOGO HERO TEXT (EXACT LOGO STYLE) ===== */}
 <div
   style={{
     position: "relative",
@@ -273,7 +298,7 @@ useEffect(() => {
     marginBottom: "32px",
   }}
 >
-  CLOUD – positioned above end of MATRIX
+  {/* CLOUD – positioned above end of MATRIX */}
   <img
     src={Cloud}
     alt="Cloud"
@@ -286,7 +311,6 @@ useEffect(() => {
     }}
   />
 
-  Matrix HR
   <div
     style={{
       display: "flex",
@@ -317,7 +341,7 @@ useEffect(() => {
     </span>
   </div>
 
-  Technologies
+ 
   <div
     style={{
       fontSize: "1.05rem",
@@ -330,7 +354,7 @@ useEffect(() => {
   >
     TECHNOLOGIES
   </div>
-</div> */}
+</div>
 
 
   {/* TITLE */}
@@ -380,9 +404,9 @@ useEffect(() => {
       variant="none"
       style={{ fontSize: "0.9rem" }}
     >
-      Get Started Free
+       Get Started Free
     </Button>
- 
+
     <Button    
       as={Link}
       to="/demo"
@@ -483,12 +507,15 @@ useEffect(() => {
 <section
   id="asana-services"
   style={{
-    height: "100vh",
-    overflowY: "auto",
-    scrollSnapType: "y mandatory",
+    minHeight: "100vh",
+    scrollSnapAlign: "start",
     background: "#013789",
+    scrollSnapAlign: "start",
+    scrollSnapStop: "always",
+
   }}
 >
+
 
   {/* SECTION HEADING */}
   <div
@@ -604,106 +631,107 @@ useEffect(() => {
       </section>
 
       {/* ========== LAST 4 SERVICES GRID ========== */}
-      <section
+<section
   id="last-services"
   style={{
-    padding: "80px 0",      // ✅ remove left/right padding
+    scrollSnapAlign: "start",
+    scrollSnapStop: "always",
     backgroundColor: "#F3F4F6",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     gap: "50px",
     width: "100%",
+    padding: "80px 20px", // top + bottom padding
   }}
 >
+  <h2
+    style={{
+      fontSize: "3rem",
+      fontWeight: 800,
+      color: "#1F2937",
+      marginBottom: "40px",
+    }}
+  >
+    Additional Features
+  </h2>
 
-        <h2
-          style={{
-            fontSize: "3rem",
-            fontWeight: 800,
-            color: "#1F2937",
-            marginBottom: "40px",
-          }}
-        >
-          Additional Features
-        </h2>
-
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            gap: "30px",
-            maxWidth: "1200px",
-            width: "100%",
-          }}
-        >
-          {scrollServices.slice(8).map((service, i) => (
+  <div
+    style={{
+      display: "flex",
+      flexWrap: "wrap",
+      justifyContent: "center",
+      gap: "30px",
+      maxWidth: "1200px",
+      width: "100%",
+    }}
+  >
+    {scrollServices.slice(8).map((service, i) => (
       <div
-  key={i}
-  className="service-card"
-  style={{
-    flex: "1 1 200px",         // reduced from 250px
-    maxWidth: "340px",         // reduced from 280px
-    background: "#fff",
-    borderRadius: "20px",      // slightly smaller
-    padding: "10px",           // reduced from 30px
-    boxShadow: "0 15px 30px rgba(0,0,0,0.12)", // slightly smaller shadow
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    textAlign: "center",
-    transition: "transform 0.3s ease, opacity 0.3s ease",
-  }}
->
-  <img
-    src={service.image}
-    alt={service.title}
-    className="img-fluid mb-3"
-    style={{
-      borderRadius: "15px",
-      maxHeight: "150px",  // reduced from 180px
-      objectFit: "cover",
-    }}
-  />
-  <h3
-    style={{
-      fontSize: "1.5rem",  // reduced from 1.8rem
-      fontWeight: 700,
-      marginBottom: "12px",
-    }}
-  >
-    {service.title}
-  </h3>
-  <p
-    style={{
-      fontSize: "0.95rem",  // slightly smaller
-      color: "#4B5563",
-      marginBottom: "15px",
-    }}
-  >
-    {service.desc}
-  </p>
-  <Button
-    as={Link}
-    to={service.path}
-    className="hero-btn-primary"
-    variant="none"
-  >
-    Learn More
-  </Button>
-</div>
+        key={i}
+        className="service-card"
+        style={{
+          flex: "1 1 200px",
+          maxWidth: "340px",
+          background: "#fff",
+          borderRadius: "20px",
+          padding: "10px",
+          boxShadow: "0 15px 30px rgba(0,0,0,0.12)",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
+          transition: "transform 0.3s ease, opacity 0.3s ease",
+        }}
+      >
+        <img
+          src={service.image}
+          alt={service.title}
+          className="img-fluid mb-3"
+          style={{
+            borderRadius: "15px",
+            maxHeight: "150px",
+            objectFit: "cover",
+          }}
+        />
+        <h3
+          style={{
+            fontSize: "1.5rem",
+            fontWeight: 700,
+            marginBottom: "12px",
+          }}
+        >
+          {service.title}
+        </h3>
+        <p
+          style={{
+            fontSize: "0.95rem",
+            color: "#4B5563",
+            marginBottom: "15px",
+          }}
+        >
+          {service.desc}
+        </p>
+        <Button
+          as={Link}
+          to={service.path}
+          className="hero-btn-primary"
+          variant="none"
+        >
+          Learn More
+        </Button>
+      </div>
+    ))}
+  </div>
 
+  <style>{`
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+  `}</style>
+</section>
 
-          ))}
-        </div>
-
-        <style>{`
-          .service-card:hover {
-            transform: translateY(-10px);
-          }
-        `}</style>
-      </section>
+     
 
       {/* ========== FOOTER CTA ========== 
       <Container className="py-5 text-center" style={{ position: "relative", zIndex: 2 }}>
@@ -717,8 +745,14 @@ useEffect(() => {
       </Button>
       </Container> */}
 
-      <HomeAchievements />
-      <Partners />
+     <section style={{ scrollSnapAlign: "start" , scrollSnapStop: "always"}}>
+  <HomeAchievements />
+</section>
+
+<section style={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}>
+  <Partners />
+</section>
+
       <ComplianceChatbot />
     </section>
   );

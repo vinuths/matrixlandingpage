@@ -21,13 +21,6 @@ const heroTexts = [
       "Manage audits, track compliance, and generate real-time reports with a powerful centralized compliance platform.",
   },
   {
-  title: "Compliance You Can Trust.",
-  text: "Centralized Dashboard.",
-  desc:
-    "Get a single source of truth for all compliance activities with a centralized dashboard offering real-time visibility and control.",
-},
-
-  {
     title: "Automate Statutory Compliance",
     text: "Never Miss a Deadline",
     desc:
@@ -217,7 +210,7 @@ const snapTimeoutRef = useRef(null);
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: "#ffffffff",
-        }}
+        }}                
       > 
         <div
           id="preloader"

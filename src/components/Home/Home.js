@@ -237,6 +237,7 @@ const snapTimeoutRef = useRef(null);
   }
 
   return (
+    
 <section
   style={{
     position: "relative",
@@ -746,7 +747,7 @@ scrollSnapStop: "always",
   <Partners />
 </section>
 
-      <ComplianceChatbot />
+      {/* <ComplianceChatbot /> */}
     </section>
   );
 }

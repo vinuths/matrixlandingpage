@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Table, Pagination, DatePicker, Select, Spin } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { stateGets, holidayLibraryPaginatedGet, holidayLibraryDelete } from "../../../../store/actions/otherActions";
+import { stateGets, holidayLibraryPaginatedGet, holidayLibraryDelete } from "../../../../../store/actions/otherActions";
 import { EditOutlined, DeleteOutlined, EyeOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
-import Popup from "../../../../components/Popup";
+import Popup from "../../../../../components/Popup";
 import moment from "moment";
-import { updateHolidayLibraryStatus } from "../../../../routes/api";
+import { updateHolidayLibraryStatus } from "../../../../../routes/api";
 import { Switch } from "antd";
 import { toast } from "react-toastify";
 import HolidayElibraryCreate from "./HolidayElibraryCreate";

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import RulesElibraryTable from './RulesElibraryTable';
 import RulesElibraryCreate from './RulesElibraryCreate';
-import { stateGets, ruleLibraryPaginatedGet } from "../../../../store/actions/otherActions";
+import { stateGets, ruleLibraryPaginatedGet } from "../../../../../store/actions/otherActions";
 
 function RulesView() {
   const [localPage, setLocalPage] = useState(1);

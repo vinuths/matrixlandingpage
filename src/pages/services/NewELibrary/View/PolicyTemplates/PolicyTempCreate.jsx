@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { FormGroup, styled } from '@mui/material';
+import FormGroup from '@mui/material/FormGroup';    // default import
+import { styled } from '@mui/material/styles';      // styled from styles
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { policyTemplateLibraryCreate, policyTemplateLibraryUpdate } from '../../../../store/actions/otherActions';
+import { policyTemplateLibraryCreate, policyTemplateLibraryUpdate } from '../../../../../store/actions/otherActions';
 
 const PolicyTempCreate = ({ addOrEdit, recordForEdit, setLocalPage }) => {
     const dispatch = useDispatch();

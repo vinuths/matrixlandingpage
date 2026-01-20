@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { policyTemplateLibraryPaginatedGet } from "../../../../store/actions/otherActions";
+import { policyTemplateLibraryPaginatedGet } from "../../../../../store/actions/otherActions";
 import PolicyTempTable from './PolicyTempTable';
 import PolicyTempCreate from './PolicyTempCreate';
 

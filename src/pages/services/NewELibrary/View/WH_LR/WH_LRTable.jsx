@@ -5,16 +5,17 @@ import {
   stateGets,
   labourWelfareLibraryDelete,
   WHAndLRLibraryPaginatedGet,
-} from "../../../../store/actions/otherActions";
+} from "../../../../../store/actions/otherActions";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import Popup from "../../../../components/Popup";
+import Popup from "../../../../../components/Popup";
 import moment from "moment";
-import { updateLabourWelFundLibraryStatus } from "../../../../routes/api";
+import { updateLabourWelFundLibraryStatus } from "../../../../../routes/api";
 import { toast } from "react-toastify";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import { Typography, FormGroup, styled } from "@mui/material";
+import FormGroup from '@mui/material/FormGroup';    // default import
+import { styled } from '@mui/material/styles';      // styled from styles
 import ArrowBackIcon from "@mui/icons-material/ArrowBack"; // ✅ Imported MUI arrow icon
 
 dayjs.extend(customParseFormat);

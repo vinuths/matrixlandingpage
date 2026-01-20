@@ -28,7 +28,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import ActTable from './ActTable';
 import ActCreate from './ActCreate';
-import { stateGets, actLibraryPaginatedGet } from "../../../../store/actions/otherActions";
+import { stateGets, actLibraryPaginatedGet } from "../../../../../store/actions/otherActions";
 
 function ActView() {
   const [localPage, setLocalPage] = useState(1);

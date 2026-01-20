@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { categoryGetComplianceList } from "../../../../../store/actions/otherActions";
+import { categoryGetComplianceList } from "../../../../../../store/actions/otherActions";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const CompQACato = () => {

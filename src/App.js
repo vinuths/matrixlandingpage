@@ -26,7 +26,31 @@ import MultiStateCompliance from "./pages/services/MultiStateCompliance";
 import ComplianceTracking from "./pages/services/ComplianceTracking";
 import RiskManagement from "./pages/services/RiskManagement";
 import Demo from "./pages/services/demo/Demo";
-import ELibrary from "./pages/services/NewELibrary/View/ELibrary";
+import ELibrary from "./pages/services/NewELibrary/View/ViewElibrary";
+import CreateElibrary from "./pages/services/NewELibrary/Create/CreateElibrary";
+import ActView from "./pages/services/NewELibrary/View/Act/ActView";
+import RulesView from "./pages/services/NewELibrary/View/Rules/RulesView";
+import LabourFormsView from "./pages/services/NewELibrary/View/LabourForms/LabourFormsView";
+import HolidaysView from "./pages/services/NewELibrary/View/NationalHolidays/HolidaysView";
+import LabourWelfareView from "./pages/services/NewELibrary/View/LabourWelfare/LabourWelfareView";
+import MinWagesView from "./pages/services/NewELibrary/View/MinimumWages/MinWagesView";
+import WH_LR from "./pages/services/NewELibrary/View/WH_LR/WH_LR";
+import PTView from "./pages/services/NewELibrary/View/PT/PTView";
+import PolicyTempView from "./pages/services/NewELibrary/View/PolicyTemplates/PolicyTempView";
+import LegalUpds from "./pages/services/NewELibrary/View/LegalUpdates/LegalUpds";
+import OthersView from "./pages/services/NewELibrary/View/Others/OthersView";
+
+import CompOptions from "./pages/services/NewELibrary/View/ComplianceQA/CompOptions";
+import CompCatView from "./pages/services/NewELibrary/View/ComplianceQA/CompCategory/CompCatView";
+import CompQAHubView from "./pages/services/NewELibrary/View/ComplianceQA/QandAHub/CompQAHubView";
+import CompQATable from "./pages/services/NewELibrary/View/ComplianceQA/QandAHub/CompQATable";
+
+import HolidayElibraryStateDetails from "./pages/services/NewELibrary/View/NationalHolidays/HolidayElibraryStateDetails";
+import LabourWelfareState from "./pages/services/NewELibrary/View/LabourWelfare/LabourWelfareState";
+import MinWagesStateWise from "./pages/services/NewELibrary/View/MinimumWages/MinWagesStateWise";
+import WH_LR_State from "./pages/services/NewELibrary/View/WH_LR/WH_LR_State";
+import PTState from "./pages/services/NewELibrary/View/PT/PTState";
+
 import {
   BrowserRouter as Router,
   Route,
@@ -89,7 +113,31 @@ function App() {
           
            {/* ===== ELIBRARY ===== */}
         <Route path="/elibrary" element={<ELibrary />} />
+        
+<Route path="/services/elibrary/create" element={<CreateElibrary />} />
 
+<Route path="/services/elibrary/acts" element={<ActView />} />
+<Route path="/services/elibrary/rules" element={<RulesView />} />
+<Route path="/services/elibrary/labour-forms" element={<LabourFormsView />} />
+<Route path="/services/elibrary/holidays" element={<HolidaysView />} />
+<Route path="/services/elibrary/labour-welfare" element={<LabourWelfareView />} />
+<Route path="/services/elibrary/minimum-wages" element={<MinWagesView />} />
+<Route path="/services/elibrary/working-hours" element={<WH_LR />} />
+<Route path="/services/elibrary/professional-tax" element={<PTView />} />
+<Route path="/services/elibrary/policy-templates" element={<PolicyTempView />} />
+<Route path="/services/elibrary/legal-updates" element={<LegalUpds />} />
+<Route path="/services/elibrary/compliance-qa" element={<CompOptions />} />
+<Route path="/services/elibrary/general" element={<OthersView />} />
+
+<Route path="/services/elibrary/holidays/:state" element={<HolidayElibraryStateDetails />} />
+<Route path="/services/elibrary/labour-welfare/:state" element={<LabourWelfareState />} />
+<Route path="/services/elibrary/minimum-wages/:state" element={<MinWagesStateWise />} />
+<Route path="/services/elibrary/working-hours/:state" element={<WH_LR_State />} />
+<Route path="/services/elibrary/professional-tax/:state" element={<PTState />} />
+
+<Route path="/services/elibrary/compliance-qa/category" element={<CompCatView />} />
+<Route path="/services/elibrary/compliance-qa/hub" element={<CompQAHubView />} />
+<Route path="/services/elibrary/compliance-qa/table" element={<CompQATable  />} />
         </Routes>
 
         <Footer />

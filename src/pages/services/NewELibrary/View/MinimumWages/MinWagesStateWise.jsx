@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Table } from "antd";
 import moment from "moment";
-import { minWageGetById, minWagePeriodsByStateAndYearGet, stateGets } from "../../../../store/actions/otherActions";
+import { minWageGetById, minWagePeriodsByStateAndYearGet, stateGets } from "../../../../../store/actions/otherActions";
 import { useDispatch, useSelector } from "react-redux";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 // import "./HolidayStateCards.css";

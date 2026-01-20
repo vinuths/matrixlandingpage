@@ -1,141 +1,173 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import {
-  Description, Event, AccountBalance,
-  AttachMoney, AccessTime, Receipt, HelpOutline,
-  LibraryBooks, Update, Folder, MenuBook
-} from '@mui/icons-material';
-import GavelTwoToneIcon from '@mui/icons-material/GavelTwoTone';
-import FeedTwoToneIcon from '@mui/icons-material/FeedTwoTone';
-import {
-  Box, Container, Grid, Typography, Paper,
-  createTheme, ThemeProvider
-} from '@mui/material';
-import { styled } from '@mui/material/styles';
-// Custom theme with your color
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#013879',
-      contrastText: '#FFFFFF',
-    },
-    background: {
-      default: '#F8FAFC',
-      paper: '#FFFFFF',
-    },
-  },
-  shape: {
-    borderRadius: 8,
-  },
-});
-const LibraryButton = styled(Paper)(({ theme }) => ({
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-  backgroundColor: theme.palette.background.paper,
-  border: `1px solid ${theme.palette.divider}`,
-  borderRadius: theme.shape.borderRadius * 2,
-  cursor: 'pointer',
-  transition: theme.transitions.create(
-    ['transform', 'box-shadow', 'background-color', 'color'],
-    { duration: theme.transitions.duration.standard }
-  ),
-  minHeight: 100,
-  minWidth: 140,
-  maxWidth: 260,
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-  '&:hover': {
-    transform: 'translateY(-4px)',
-    boxShadow: theme.shadows[6],
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
-    '& .MuiSvgIcon-root': {
-      color: theme.palette.primary.contrastText,
-    }
-  },
-}));
-const ViewElibrary = () => {
+import React from "react";
+import { useNavigate } from "react-router-dom";
+
+const libraryItems = [
+  { title: "Acts", path: "/services/elibrary/acts", icon: "📜" },
+  { title: "Rules", path: "/services/elibrary/rules", icon: "📄" },
+  { title: "Labour Forms", path: "/services/elibrary/labour-forms", icon: "🧾" },
+  { title: "National Holidays", path: "/services/elibrary/holidays", icon: "📅" },
+  { title: "Labour Welfare Fund", path: "/services/elibrary/labour-welfare", icon: "🏦" },
+  { title: "Minimum Wages", path: "/services/elibrary/minimum-wages", icon: "💰" },
+  { title: "Working Hours", path: "/services/elibrary/working-hours", icon: "⏰" },
+  { title: "Professional Tax", path: "/services/elibrary/professional-tax", icon: "🧾" },
+  { title: "Compliance Q&A", path: "/services/elibrary/compliance-qa", icon: "❓" },
+  { title: "Policy Templates", path: "/services/elibrary/policy-templates", icon: "📂" },
+  { title: "Legal Updates", path: "/services/elibrary/legal-updates", icon: "📰" },
+  { title: "General", path: "/services/elibrary/general", icon: "📚" },
+];
+
+const ELibrary = () => {
   const navigate = useNavigate();
-  const buttons = [
-    { label: "Acts", path: "/elibrary/View/Acts", icon: <GavelTwoToneIcon sx={{ fontSize: 30 }} /> },
-    { label: "Rules", path: "/elibrary/View/Rules", icon: <Description sx={{ fontSize: 30 }} /> },
-    { label: "Labour Forms", path: "/elibrary/View/Labour_Forms", icon: <Receipt sx={{ fontSize: 30 }} /> },
-    { label: "National Holidays", path: "/elibrary/View/National_&_Festival_Holidays", icon: <Event sx={{ fontSize: 30 }} /> },
-    { label: "Labour Welfare Fund", path: "/elibrary/View/Labour_Welfare_Fund", icon: <AccountBalance sx={{ fontSize: 30 }} /> },
-    { label: "Minimum Wages", path: "/elibrary/View/Minimum_Wages", icon: <AttachMoney sx={{ fontSize: 30 }} /> },
-    { label: "Working Hours", path: "/elibrary/View/Working_Hours_&_leave_Rules", icon: <AccessTime sx={{ fontSize: 30 }} /> },
-    { label: "Professional Tax", path: "/elibrary/View/Professional_Tax", icon: <FeedTwoToneIcon sx={{ fontSize: 30 }} /> },
-    { label: "Compliance Q&A", path: "/elibrary/View/Compliance", icon: <HelpOutline sx={{ fontSize: 30 }} /> },
-    { label: "Policy Templates", path: "/elibrary/View/Policy_Templates", icon: <Folder sx={{ fontSize: 30 }} /> },
-    { label: "Legal Updates", path: "/elibrary/View/Recent_Legal_Updates", icon: <Update sx={{ fontSize: 30 }} /> },
-    { label: "General", path: "/elibrary/View/Others", icon: <MenuBook sx={{ fontSize: 30 }} /> },
-  ];
+
+  const buttonStyle = {
+    backgroundColor: "#d27147",
+    border: "1px solid #d27147",
+    color: "#ffffff",
+    fontWeight: 600,
+    padding: "10px 20px",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    marginRight: "10px",
+    fontSize: "14px",
+  };
+
+  const buttonHover = (e) => {
+    e.target.style.backgroundColor = "#c1603d";
+    e.target.style.borderColor = "#c1603d";
+  };
+
+  const buttonLeave = (e) => {
+    e.target.style.backgroundColor = "#d27147";
+    e.target.style.borderColor = "#d27147";
+  };
+
+  const cardStyle = {
+    borderRadius: "16px",
+    background: "#ffffff",
+    color: "#013879",
+    cursor: "pointer",
+    padding: "20px",
+    textAlign: "center",
+    transition: "all 0.3s ease",
+    flex: "1 1 calc(33.333% - 20px)", // 3 cards per row with gaps
+    maxWidth: "300px",
+    boxSizing: "border-box",
+  };
+
+  const cardHover = (e) => {
+    e.currentTarget.style.transform = "translateY(-6px)";
+    e.currentTarget.style.boxShadow = "0 8px 20px rgba(0,0,0,0.2)";
+  };
+
+  const cardLeave = (e) => {
+    e.currentTarget.style.transform = "translateY(0)";
+    e.currentTarget.style.boxShadow = "0 4px 10px rgba(0,0,0,0.1)";
+  };
+
   return (
-    <div className="dashboard_wrapper" style={{
-      background: '#F8FAFC',
-      padding: '10px 20px 40px 20px',
-      maxWidth: 'calc(180vh - 80px)',
-      marginLeft: '245px',
-    }}>
-      <ThemeProvider theme={theme}>
-        <Box sx={{ backgroundColor: 'background.default', py: 1 }}>
-          <Container maxWidth="lg">
-            <Typography
-              variant="h4"
-              component="h4"
-              gutterBottom
-              sx={{
-                textAlign: 'center',
-                fontWeight: 600,
-                color: 'primary.main',
-                mb: 6
-              }}
-              style={{ textDecoration: 'underline' }}
+ <section
+  style={{
+    minHeight: "100vh",
+    background: "linear-gradient(135deg, #013879 0%, #CCEBFD 100%)",
+    paddingTop: "100px", // adjust this based on your navbar height
+    boxSizing: "border-box",
+  }}
+>
+
+      {/* HERO SECTION */}
+      <div style={{ textAlign: "center", marginBottom: "50px" }}>
+        <h1 style={{ color: "#fff", fontWeight: "bold", marginBottom: "20px", fontSize: "36px" }}>
+          E-Library
+        </h1>
+        <p style={{ color: "#fff", opacity: 0.85, maxWidth: "700px", margin: "0 auto 30px", fontSize: "16px" }}>
+          Access all your HR compliance resources, templates, and training materials in one place.
+        </p>
+
+        <button
+          style={buttonStyle}
+          onMouseEnter={buttonHover}
+          onMouseLeave={buttonLeave}
+          onClick={() => navigate("/contact")}
+        >
+          Request Access
+        </button>
+
+        <button
+          style={buttonStyle}
+          onMouseEnter={buttonHover}
+          onMouseLeave={buttonLeave}
+          onClick={() => navigate("/")}
+        >
+          Back to Home
+        </button>
+      </div>
+
+      {/* ELIBRARY ITEMS */}
+      <div style={{ textAlign: "center", marginBottom: "50px" }}>
+        <h2 style={{ color: "#fff", fontWeight: "bold", marginBottom: "40px", fontSize: "28px" }}>Knowledge Hub</h2>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "20px",
+            maxWidth: "1000px",
+            margin: "0 auto",
+          }}
+        >
+          {libraryItems.map((item, idx) => (
+            <div
+              key={idx}
+              style={cardStyle}
+              onClick={() => navigate(item.path)}
+              onMouseEnter={cardHover}
+              onMouseLeave={cardLeave}
             >
-              E-Library Sections
-            </Typography>
-            <Grid container spacing={4}>
-              {buttons.map((btn, index) => (
-                <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-                  <LibraryButton elevation={2} onClick={() => navigate(btn.path)} sx={{ border: '2px solid #013879' }}>
-                    <Box sx={{
-                      color: 'primary.main',
-                      mb: 2,
-                      '& .MuiSvgIcon-root': { fontSize: '2.5rem' },
-                    }}>
-                      {btn.icon}
-                    </Box>
-                    <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-                      {btn.label}
-                    </Typography>
-                  </LibraryButton>
-                </Grid>
-              ))}
-            </Grid>
-          </Container>
-        </Box>
-      </ThemeProvider>
-      <Box mt={6} px={1}>
-        <Typography variant="caption" sx={{
-          fontStyle: 'italic',
-          fontSize: '10px',
-          color: 'gray',
-          textAlign: 'justify',
-          whiteSpace: 'pre-wrap',
-        }}>
-          <span style={{ fontWeight: '600', color: '#013879' }}>Disclaimer</span>
-          {"\n"}The content published on this website is provided by Matrix HR Technologies Pvt. Ltd. for general informational purposes only. While we make every effort to ensure the information is accurate, complete, and up-to-date, we make no representations or warranties of any kind—express or implied—about the reliability, suitability, availability, or accuracy of the information, services, or related graphics contained on the website.
-          {"\n"}Any reliance you place on such information is strictly at your own risk. Matrix HR Technologies Pvt. Ltd. will not be liable for any loss or damage, including indirect or consequential loss, arising out of, or in connection with, the use of this website or the information provided.
-          {"\n"}For questions, suggestions, or to report inaccuracies, please contact us at support@matrixhrtech.com.
-          {"\n\n"}<span style={{ fontWeight: '600', color: '#013879' }}>Copyright Notice
-          © Matrix HR Technologies Pvt. Ltd. All rights reserved.</span>
-          {"\n"}All content on this website—including text, graphics, logos, icons, images, audio clips, digital downloads, and software—is the property of Matrix HR Technologies Pvt. Ltd. or its content suppliers and is protected by applicable copyright and intellectual property laws.
-          {"\n"}Unauthorized reproduction, distribution, or modification of any part of this website, in whole or in part, is strictly prohibited without prior written permission from Matrix HR Technologies Pvt. Ltd.
-        </Typography>
-      </Box>
-    </div>
+              <div style={{ fontSize: "3rem", marginBottom: "15px" }}>{item.icon}</div>
+              <h5 style={{ fontWeight: "bold", fontSize: "18px" }}>{item.title}</h5>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* DISCLAIMER SCROLL */}
+      <div
+        style={{
+          width: "100%",
+          height: "52px",
+          overflow: "hidden",
+          background: "linear-gradient(135deg, #013879 0%, #CCEBFD 100%)",
+          display: "flex",
+          alignItems: "center",
+          borderTop: "1px solid rgba(255,255,255,0.3)",
+        }}
+      >
+        <p
+          style={{
+            whiteSpace: "nowrap",
+            paddingLeft: "100%",
+            animation: "scrollText 35s linear infinite",
+            fontSize: "9.5px",
+            color: "#ffffff",
+            letterSpacing: "0.4px",
+            margin: 0,
+          }}
+        >
+          <strong>Disclaimer:</strong> The content published on this website is provided by{" "}
+          <strong>Matrix HR Technologies Pvt. Ltd.</strong> for informational purposes only.
+        </p>
+      </div>
+
+      <style>
+        {`
+          @keyframes scrollText {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+          }
+        `}
+      </style>
+    </section>
   );
 };
-export default ViewElibrary;
+
+export default ELibrary;

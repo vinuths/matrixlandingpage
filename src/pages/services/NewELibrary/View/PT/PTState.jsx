@@ -6,7 +6,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import {
     pTByStateWise,
     stateGets,
-} from "../../../../store/actions/otherActions";
+} from "../../../../../store/actions/otherActions";
 // import "./LabourWelfareStateCards.css";
 
 const PTState = () => {

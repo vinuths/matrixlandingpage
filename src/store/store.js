@@ -2,9 +2,9 @@ import { createStore, combineReducers, applyMiddleware/*,compose*/ } from 'redux
 import thunk from 'redux-thunk';  // if after getting dispatch from action if  it returns function thunk will apply ascynchronously some logic as middleware then give it to reducer.
 import { composeWithDevTools } from "redux-devtools-extension";
 
-import {
-        userLoginReducer,
-} from './reducers/authReducers';  // imporeting auth user reducers
+// import {
+//         userLoginReducer,
+// } from './reducers/authReducers';  // imporeting auth user reducers
 
 import {
         auditReducer,
@@ -200,7 +200,7 @@ const reducer = combineReducers({
         filterAllAudit: auditAllFilterReducer,
         onGoingAudit: auditOnGoingReducer,
         overDueAudit: auditOverDueReducer,
-        userLogin: userLoginReducer,
+        // userLogin: userLoginReducer,
         catCreate: categoryReducer,
         catGet: categoryGetReducer,
         catEdit: categoryEditReducer,
@@ -384,7 +384,7 @@ const initialState = {
 
 const middleware = [thunk];
 
-const store = createStore(reducer, initialState, composeWithDevTools(applyMiddleware(...middleware)));//this is also correct
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(...middleware)));//this is also correct
 //const store = createStore(reducer,initialState,composeWithDevTools(applyMiddleware(thunk))); // this is also correct
 
 export default store;

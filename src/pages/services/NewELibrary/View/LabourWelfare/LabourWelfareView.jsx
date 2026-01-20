@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { stateGets, labourWelfareLibraryPaginatedGet } from "../../../../store/actions/otherActions";
+import { stateGets, labourWelfareLibraryPaginatedGet } from "../../../../../store/actions/otherActions";
 import LabourWelfareTable from './LabourWelfareTable';
 import LabourWelfareState from './LabourWelfareState';
 

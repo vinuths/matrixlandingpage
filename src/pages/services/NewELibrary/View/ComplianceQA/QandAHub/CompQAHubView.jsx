@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { stateGets,compQandALibraryPaginatedGet} from "../../../../../store/actions/otherActions";
+import { stateGets,compQandALibraryPaginatedGet} from "../../../../../../store/actions/otherActions";
 import CompQATable from './CompQATable';
 import CompQACreate from './CompQACreate';
 

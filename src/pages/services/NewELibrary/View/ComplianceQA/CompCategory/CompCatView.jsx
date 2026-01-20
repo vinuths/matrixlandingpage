@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { complianceCategoryPaginatedGet, stateGets,} from "../../../../../store/actions/otherActions";
+import { complianceCategoryPaginatedGet, stateGets,} from "../../../../../../store/actions/otherActions";
 import CompCatTable from './CompCatTable';
 import CompCatCreate from './CompCatCreate';
 

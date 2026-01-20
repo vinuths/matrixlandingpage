@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { stateGets, actLibraryPaginatedGet, professionalTaxLibraryPaginatedGet } from "../../../../store/actions/otherActions";
+import { stateGets, actLibraryPaginatedGet, professionalTaxLibraryPaginatedGet } from "../../../../../store/actions/otherActions";
 import PTtable from './PTtable';
 import PTCreate from './PTCreate';
 

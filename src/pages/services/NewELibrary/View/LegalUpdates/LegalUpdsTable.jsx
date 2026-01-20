@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
     categoryGetComplianceList,
     reLeagalUpdateLibraryPaginatedGet,
-} from "../../../../store/actions/otherActions";
+} from "../../../../../store/actions/otherActions";
 import { Spin } from "antd";
 import moment from "moment";
 import "./LegalCSS.css"; // use same FAQ styles

@@ -6,7 +6,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import {
     labourWelfareLibraryStateWise,
     stateGets,
-} from "../../../../store/actions/otherActions";
+} from "../../../../../store/actions/otherActions";
 import "./LabourWelfareStateCards.css";
 
 const LabourWelfareState = () => {

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { stateGets, actLibraryPaginatedGet, WHAndLRLibraryPaginatedGet } from "../../../../store/actions/otherActions";
+import { stateGets, actLibraryPaginatedGet, WHAndLRLibraryPaginatedGet } from "../../../../../store/actions/otherActions";
 import WH_LRTable from './WH_LRTable';
 import WH_LRCreate from './WH_LRCreate';
 

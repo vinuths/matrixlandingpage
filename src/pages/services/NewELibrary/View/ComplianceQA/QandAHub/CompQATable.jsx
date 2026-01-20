@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   compQandALibraryPaginatedGet
-} from "../../../../../store/actions/otherActions";
+} from "../../../../../../store/actions/otherActions";
 import { useNavigate, useParams } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Spin } from "antd";

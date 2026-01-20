@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { stateGets, ruleLibraryPaginatedGet } from "../../../../store/actions/otherActions";
+import { stateGets, ruleLibraryPaginatedGet } from "../../../../../store/actions/otherActions";
 import moment from "moment";
 import { Pagination } from "antd";
-import "antd/dist/reset.css";
+import 'antd/dist/antd.css';
 import "./RulesCSS.css";
 import { useNavigate } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';

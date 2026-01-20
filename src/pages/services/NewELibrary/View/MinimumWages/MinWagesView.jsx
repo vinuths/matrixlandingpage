@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { stateGets, minimumWagesLibraryPaginatedGet } from "../../../../store/actions/otherActions";
+import { stateGets, minimumWagesLibraryPaginatedGet } from "../../../../../store/actions/otherActions";
 import MinWagesViewTable from './MinWagesViewTable';
 import MinWagesViewCreate from './MinWagesViewCreate';
 

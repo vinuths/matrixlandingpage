@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Table, Pagination, DatePicker, Spin } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { complianceCategoryDelete, complianceCategoryPaginatedGet, stateGets } from "../../../../../store/actions/otherActions";
+import { complianceCategoryDelete, complianceCategoryPaginatedGet, stateGets } from "../../../../../../store/actions/otherActions";
 import { EditOutlined, DeleteOutlined, EyeOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
-import Popup from "../../../../../components/Popup";
+import Popup from "../../../../../../components/Popup";
 import moment from "moment";
-import { ComplianceCategory, updateComplianceCategoryStatus } from "../../../../../routes/api";
+import { ComplianceCategory, updateComplianceCategoryStatus } from "../../../../../../routes/api";
 import { Switch } from "antd";
 import { toast } from "react-toastify";
 import CompCatCreate from "./CompCatCreate";

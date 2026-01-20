@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { FormGroup, styled } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import FormGroup from '@mui/material/FormGroup';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { stateGets, ruleLibraryCreate, ruleLibraryPaginatedGet, ruleLibraryUpdate } from '../../../../store/actions/otherActions';
+import { stateGets, ruleLibraryCreate, ruleLibraryPaginatedGet, ruleLibraryUpdate } from '../../../../../store/actions/otherActions';
 
 const RulesElibraryCreate = ({ addOrEdit, recordForEdit, setLocalPage }) => {
     const dispatch = useDispatch();
